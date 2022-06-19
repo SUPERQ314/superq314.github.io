@@ -6,7 +6,7 @@
   <link href="https://superq314.github.io/atom.xml" rel="self"/>
   
   <link href="https://superq314.github.io/"/>
-  <updated>2022-05-02T12:49:24.127Z</updated>
+  <updated>2022-06-19T07:23:01.453Z</updated>
   <id>https://superq314.github.io/</id>
   
   <author>
@@ -15,6 +15,96 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则表达式</title>
+    <link href="https://superq314.github.io/2022/06/19/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://superq314.github.io/2022/06/19/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <published>2022-06-19T06:40:31.847Z</published>
+    <updated>2022-06-19T07:23:01.453Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p><img src="https://www.runoob.com/wp-content/uploads/2014/03/CEBB49BB-B1AD-4539-AC7A-B40DDC62D1B2.jpg"></p><ul><li><code>^</code> 为匹配输入字符串的开始位置</li><li><code>[0-9]+</code> 匹配多个数字，<code>[0-9]</code> 匹配单个数字，<code>+</code> 匹配一个或者多个</li><li><code>abc</code> 匹配字母 <code>abc </code>并以 <code>abc</code> 结尾，<code>$</code> 为匹配输入字符串的结束位置</li></ul><p>我们在写用户注册表单时，只允许用户名包含字符 <code>a-z</code>、数字 <code>0-9</code>、下划线 <code>_</code>和连接字符 **<code>-</code>**，并设置用户名的长度，我们就可以使用以下正则表达式来设定。</p><p><img src="https://www.runoob.com/wp-content/uploads/2018/09/regexp-cn.png"></p><p><img src="https://www.runoob.com/wp-content/uploads/2014/03/regexp-metachar-2020-11-23.png"></p><h2 id="普通字符"><a href="#普通字符" class="headerlink" title="普通字符"></a>普通字符</h2><table><thead><tr><th>字符</th><th>功能</th></tr></thead><tbody><tr><td><strong>[abc]</strong></td><td>匹配**[…]** 中的所有abc字符</td></tr><tr><td><strong>[^abc]</strong></td><td>匹配**[…]**除了abc字符的所有字符</td></tr><tr><td><strong>[A-Z]</strong></td><td>[A-Z] 匹配所有大写字母</td></tr><tr><td><strong>[a-z]</strong></td><td>[a-z] 表示所有小写字母</td></tr><tr><td><strong>.</strong></td><td>匹配除换行符（\n、\r）之外的任何单个字符，相等于 [^\n\r]</td></tr><tr><td><strong>[\s\S]</strong></td><td>匹配所有空白符，\S 非空白符，不包括换行</td></tr><tr><td><strong>\w</strong></td><td>匹配字母、数字、下划线，等价于[A-Za-z0-9_]</td></tr></tbody></table><h2 id="非打印字符"><a href="#非打印字符" class="headerlink" title="非打印字符"></a>非打印字符</h2><table><thead><tr><th>字符</th><th>描述</th></tr></thead><tbody><tr><td>\v</td><td>匹配一个垂直制表符</td></tr><tr><td>\f</td><td>匹配一个换页符</td></tr><tr><td>\n</td><td>匹配一个换行符</td></tr><tr><td>\r</td><td>匹配一个回车符</td></tr><tr><td>\s</td><td>匹配任何空白字符，包括空格、制表符、换页符等等</td></tr><tr><td>\S</td><td>匹配任何非空白字符</td></tr><tr><td>\t</td><td>匹配一个制表符</td></tr></tbody></table><h2 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h2><table><thead><tr><th>特别字符</th><th>描述</th></tr></thead><tbody><tr><td>$</td><td>匹配输入字符串的结尾位置</td></tr><tr><td>( )</td><td>标记一个子表达式的开始和结束位置</td></tr><tr><td>*</td><td>匹配前面的子表达式零次或多次；<br />要匹配 * 字符，请使用\*</td></tr><tr><td>+</td><td>匹配前面的子表达式一次或多次；<br />要匹配 + 字符，请使用\+</td></tr><tr><td>.</td><td>匹配除换行符 \n 之外的任何单字符；<br />要匹配 . ，请使用\.</td></tr><tr><td>[</td><td>标记一个中括号表达式的开始；<br />要匹配 [，请使用\[</td></tr><tr><td>?</td><td>匹配前面的子表达式零次或一次，或指明一个非贪婪限定符；<br />要匹配 ? 字符，请使用\?</td></tr><tr><td>\</td><td>将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符；<br />例如， ‘n’ 匹配字符 ‘n’；’\n’ 匹配换行符；序列 ‘\\‘ 匹配 “\“，而 ‘\(‘ 则匹配 “(“</td></tr><tr><td>^</td><td>匹配输入字符串的开始位置<br />要匹配 ^ 字符本身，请使用\^</td></tr><tr><td>{</td><td>标记限定符表达式的开始；<br />要匹配 {，请使用\{</td></tr></tbody></table><h2 id="限定符"><a href="#限定符" class="headerlink" title="限定符"></a>限定符</h2><p>限定符用来指定正则表达式的一个给定组件必须要出现多少次才能满足匹配。有 <code>*</code>或 <code>+</code>或 <code>?</code>或 <code>&#123;n&#125;</code> 或 <code>&#123;n,&#125;</code>或 <code>&#123;n,m&#125;</code> 共6种。</p><table><thead><tr><th>字符</th><th>描述</th></tr></thead><tbody><tr><td>*</td><td>匹配前面的子表达式零次或多次。等价于{0,}。</td></tr><tr><td>+</td><td>匹配前面的子表达式一次或多次。等价于 {1,}。</td></tr><tr><td>?</td><td>匹配前面的子表达式零次或一次。等价于 {0,1}。</td></tr><tr><td>{n}</td><td>n 是一个非负整数。匹配确定的 n 次。</td></tr><tr><td>{n,}</td><td>n 是一个非负整数。至少匹配n 次。’o{1,}’ 等价于 ‘o+’。’o{0,}’ 则等价于 ‘o*’。</td></tr><tr><td>{n,m}</td><td>m 和 n 均为非负整数，其中n &lt;&#x3D; m。最少匹配 n 次且最多匹配 m 次。’o{0,1}’ 等价于 ‘o?’。</td></tr></tbody></table><p><a href="./%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md">常用正则表达式</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://www.runoob.com/wp-content/uploads/2014/0</summary>
+      
+    
+    
+    
+    
+    <category term="正则" scheme="https://superq314.github.io/tags/%E6%AD%A3%E5%88%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用正则表达式</title>
+    <link href="https://superq314.github.io/2022/06/19/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://superq314.github.io/2022/06/19/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <published>2022-06-19T04:42:44.248Z</published>
+    <updated>2022-06-19T07:23:03.241Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="常用正则表达式"><a href="#常用正则表达式" class="headerlink" title="常用正则表达式"></a>常用正则表达式</h1><p><img src="https://www.runoob.com/wp-content/uploads/2014/03/CEBB49BB-B1AD-4539-AC7A-B40DDC62D1B2.jpg"></p><ul><li><code>^</code> 为匹配输入字符串的开始位置</li><li><code>[0-9]+</code> 匹配多个数字，<code>[0-9]</code> 匹配单个数字，<code>+</code> 匹配一个或者多个</li><li><code>abc</code> 匹配字母 <code>abc </code>并以 <code>abc</code> 结尾，<code>$</code> 为匹配输入字符串的结束位置</li></ul><p>我们在写用户注册表单时，只允许用户名包含字符<code>a-z</code>、数字<code>0-9</code>、下划线<code>_</code>和连接字符 **<code>-</code>**，并设置用户名的长度，我们就可以使用以下正则表达式来设定。</p><p><img src="https://www.runoob.com/wp-content/uploads/2018/09/regexp-cn.png"></p><h2 id="校验数字的表达式"><a href="#校验数字的表达式" class="headerlink" title="校验数字的表达式"></a><strong>校验数字的表达式</strong></h2><p>1、数字：<code>^[0-9]*$</code></p><p>2、n位的数字：<code>^\d&#123;n&#125;$</code></p><p>3、至少n位的数字：<code>^\d&#123;n,&#125;$</code></p><p>4、m-n位的数字：<code>^\d&#123;m,n&#125;$</code></p><p>5、零和非零开头的数字：<code>^(0|[1-9][0-9]*)$</code></p><p>6、非零开头的最多带两位小数的数字：<code>^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$</code></p><p>7、带1-2位小数的正数或负数：<code>^(</code></p><p>8、正数、负数、小数：<code>^(\-|\+)?\d+(\.\d+)?$</code></p><p>9、有两位小数的正实数：<code>^[0-9]+(.[0-9]&#123;2&#125;)?$</code></p><p>10、有1~3位小数的正实数：<code>^[0-9]+(.[0-9]&#123;1,3&#125;)?$</code></p><p>11、非零的正整数：<code>^[1-9]\d*$</code> 或  <code>^([1-9][0-9]*)&#123;1,3&#125;$</code> 或 <code>^\+?[1-9][0-9]*$</code></p><p>12、非零的负整数：<code>^\-[1-9][]0-9&quot;*$</code> 或 <code>^-[1-9]\d*$</code></p><p>13、非负整数：<code>^\d+$</code> 或 <code>^[1-9]\d*|0$</code></p><p>14、非正整数：<code>^-[1-9]\d*|0$</code> 或 <code>^-[1-9]\d*|0$</code></p><h2 id="校验字符的表达式"><a href="#校验字符的表达式" class="headerlink" title="校验字符的表达式"></a><strong>校验字符的表达式</strong></h2><p>1、汉字：<code>^[\u4e00-\u9fa5]&#123;0,&#125;$</code></p><p>2、英文和数字：<code>^[A-Za-z0-9]+$</code> 或 <code>^[A-Za-z0-9]&#123;4,40&#125;$</code></p><p>3、长度为3-20的所有字符：<code>^.&#123;3,20&#125;$</code></p><p>3、由26个英文字母组成的字符串：<code>^[A-Za-z]+$</code></p><p>5、由26个大写英文字母组成的字符串：<code>^[A-Z]+$</code></p><p>6、由26个小写英文字母组成的字符串：<code>^[a-z]+$</code></p><p>7、由数字和26个英文字母组成的字符串：<code>^[A-Za-z0-9]+$</code></p><p>8、由数字、26个英文字母或者下划线组成的字符串：<code>^\w+$ </code>或 <code>^\w&#123;3,20&#125;$</code></p><p>9、中文、英文、数字包括下划线：<code>^[\u4E00-\u9FA5A-Za-z0-9_]+$</code></p><p>10、中文、英文、数字但不包括下划线等符号：<code>^[\u4E00-\u9FA5A-Za-z0-9]+$</code> 或 <code>^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$</code></p><p>11、可以输入含有 <code>^%&amp;&#39;,;=?$</code>等字符：<code>[^%&amp;&#39;,;=?$\x22]+</code></p><p>12、禁止输入含有<del>的字符：&#96;[^</del>\x22]+&#96;</p><h2 id="特殊需求表达式"><a href="#特殊需求表达式" class="headerlink" title="特殊需求表达式"></a><strong>特殊需求表达式</strong></h2><p>1、Email地址：<code>^\w+([-+.]\w+)</code></p><p>2、域名：<code>[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/.?</code></p><p>3、 InternetURL：<code>[a-zA-z]+://[^\s]*</code> 或 <code>^http://([\w-]+</code></p><p>4、手机号码：<code>^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$</code></p><p>5、电话号码(“XXX-XXXXXXX”、”XXXX-XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX)：<code>^(</code></p><p>6、国内电话号码(0511-4405222、021-87888822)：<code>\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;</code></p><p>7、身份证号(15位、18位数字)：<code>^\d&#123;15&#125;|\d&#123;18&#125;$</code></p><p>8、短身份证号码(数字、字母x结尾)：<code>^([0-9])&#123;7,18&#125;(x|X)?$$</code>或</p><p>9、帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：<code>^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$</code></p><p>10、密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：<code>^[a-zA-Z]\w&#123;5,17&#125;$</code></p><p>11、强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：<code>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,10&#125;$</code></p><p>12、日期格式：<code>^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</code></p><p>13、一年的12个月(01～09和1～12)：<code>^(0?[1-9]|1[0-2])$</code></p><p>14 、一个月的31天(01～09和1～31)：<code>^((0?[1-9])|((1|2)[0-9])|30|31)$</code></p><p>15、钱的输入格式：</p><ul><li>有四种钱的表示形式我们可以接受:”10000.00” 和 “10,000.00”, 和没有 “分” 的 “10000” 和 “10,000”：<code>^[1-9][0-9]*$</code></li><li>这表示任意一个不以0开头的数字,但是,这也意味着一个字符”0”不通过,所以我们采用下面的形式：<code>^(0|[1-9][0-9]*)$</code></li><li>一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：<code>^(0|-?[1-9][0-9]*)$</code></li><li>这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分：<code>^[0-9]+(.[0-9]+)?$</code></li><li>5.必须说明的是,小数点后面至少应该有1位数,所以”10.”是不通过的,但是 “10” 和 “10.2” 是通过的：<code>^[0-9]+(.[0-9]&#123;2&#125;)?$</code></li><li>6.这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：<code>^[0-9]+(.[0-9]&#123;1,2&#125;)?$</code></li><li>这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：<code>^[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*(.[0-9]&#123;1,2&#125;)?$</code></li><li>1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：<code>^([0-9]+|[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*)(.[0-9]&#123;1,2&#125;)?$</code></li></ul><p>16、xml文件：<code>^([a-zA-Z]+-?)+[a-zA-Z0-9]+</code></p><p>17、中文字符的正则表达式：<code>[\u4e00-\u9fa5]</code></p><p>18、双字节字符(包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))：<code>[^\x00-\xff]</code></p><p>19、空白行的正则表达式(可以用来删除空白行)：<code>\n\s*\r</code></p><p>21、首尾空白字符的正则表达式(可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)：<code>^\s*|\s*$</code> 或 <code>(^\s*)|(\s*$)</code></p><p>22、 腾讯QQ号 (腾讯QQ号从10000开始)：<code>[1-9][0-9]&#123;4,&#125;</code></p><p>23、中国邮政编码(中国邮政编码为6位数字)：<code>[1-9]\d&#123;5&#125;(?!\d)</code></p><p>24、IP地址(提取IP地址时有用)：<code>\d+</code></p><p>25、 IP地址：<code>((?:(?:25[0-5]|2[0-4]</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;常用正则表达式&quot;&gt;&lt;a href=&quot;#常用正则表达式&quot; class=&quot;headerlink&quot; title=&quot;常用正则表达式&quot;&gt;&lt;/a&gt;常用正则表达式&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://www.runoob.com/wp-content/upload</summary>
+      
+    
+    
+    
+    
+    <category term="正则" scheme="https://superq314.github.io/tags/%E6%AD%A3%E5%88%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery.validator.addMethod实例</title>
+    <link href="https://superq314.github.io/2022/06/19/jQuery_validator_addMethod%E5%AE%9E%E4%BE%8B/"/>
+    <id>https://superq314.github.io/2022/06/19/jQuery_validator_addMethod%E5%AE%9E%E4%BE%8B/</id>
+    <published>2022-06-19T02:47:11.328Z</published>
+    <updated>2022-06-19T04:42:21.717Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="jQuery-validator-addMethod实例"><a href="#jQuery-validator-addMethod实例" class="headerlink" title="jQuery.validator.addMethod实例"></a>jQuery.validator.addMethod实例</h1><p>需要引入 <code>&lt;script type=&quot;text/javascript&quot; src=&quot;./js/jquery-validation/jquery.validate.min.js&quot; &gt;&lt;/script&gt;</code></p><h2 id="手机号码验证"><a href="#手机号码验证" class="headerlink" title="手机号码验证"></a>手机号码验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 手机号码验证</span><br><span class="line">jQuery.validator.addMethod(&quot;mobile&quot;, function(value, element) &#123;</span><br><span class="line">    var length = value.length;</span><br><span class="line">    var mobile = /^(((13[0-9]&#123;1&#125;)|(15[0-9]&#123;1&#125;))+\d&#123;8&#125;)$/;</span><br><span class="line">    return this.optional(element) || (length == 11 &amp;&amp; mobile.test(value));</span><br><span class="line">&#125;, &quot;手机号码格式错误&quot;);</span><br></pre></td></tr></table></figure><h2 id="字母和数字的验证"><a href="#字母和数字的验证" class="headerlink" title="字母和数字的验证"></a>字母和数字的验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 字母和数字的验证</span><br><span class="line">jQuery.validator.addMethod(&quot;chrnum&quot;, function(value, element) &#123;</span><br><span class="line">    var chrnum = /^([a-zA-Z0-9]+)$/;</span><br><span class="line">    return this.optional(element) || (chrnum.test(value));</span><br><span class="line">&#125;, &quot;只能输入数字和字母(字符A-Z, a-z, 0-9)&quot;);</span><br></pre></td></tr></table></figure><h2 id="中文验证"><a href="#中文验证" class="headerlink" title="中文验证"></a>中文验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 中文验证</span><br><span class="line">jQuery.validator.addMethod(&quot;chinese&quot;, function(value, element) &#123;</span><br><span class="line">    var chinese = /^[\u4e00-\u9fa5]+$/;</span><br><span class="line">    return this.optional(element) || (chinese.test(value));</span><br><span class="line">&#125;, &quot;只能输入中文&quot;);</span><br></pre></td></tr></table></figure><h2 id="IP地址验证"><a href="#IP地址验证" class="headerlink" title="IP地址验证"></a>IP地址验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// IP地址验证</span><br><span class="line">jQuery.validator.addMethod(&quot;ip&quot;, function(value, element) &#123;</span><br><span class="line">    var ip = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.)&#123;3&#125;(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;</span><br><span class="line">    return this.optional(element) || (ip.test(value) &amp;&amp; (RegExp.$1 &lt; 256 &amp;&amp; RegExp.$2 &lt; 256 &amp;&amp; RegExp.$3 &lt; 256 &amp;&amp; RegExp.$4 &lt; 256));</span><br><span class="line">&#125;, &quot;Ip地址格式错误&quot;);</span><br></pre></td></tr></table></figure><h2 id="QQ号码验证"><a href="#QQ号码验证" class="headerlink" title="QQ号码验证"></a>QQ号码验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// QQ号码验证</span><br><span class="line">jQuery.validator.addMethod(&quot;qq&quot;, function(value, element) &#123;</span><br><span class="line">    var tel = /^[1-9]\d&#123;4,9&#125;$/;</span><br><span class="line">    return this.optional(element) || (tel.test(value));</span><br><span class="line">&#125;, &quot;QQ号码格式错误&quot;);</span><br></pre></td></tr></table></figure><h2 id="电子邮箱验证"><a href="#电子邮箱验证" class="headerlink" title="电子邮箱验证"></a>电子邮箱验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 电子邮箱验证</span><br><span class="line">jQuery.validator.addMethod(&quot;checkEmail&quot;, function(value, element)&#123;</span><br><span class="line">    var email = /^([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;</span><br><span class="line">    return this.optional(element) || (email.test(value));</span><br><span class="line">&#125;, &quot;电子邮箱格式错误&quot;);</span><br></pre></td></tr></table></figure><h2 id="下拉框验证"><a href="#下拉框验证" class="headerlink" title="下拉框验证"></a>下拉框验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 下拉框验证</span><br><span class="line">$.validator.addMethod(&quot;selectNone&quot;, function(value, element) &#123;</span><br><span class="line">    return value == &quot;请选择&quot;;</span><br><span class="line">&#125;, &quot;必须选择一项&quot;);</span><br></pre></td></tr></table></figure><h2 id="字节长度验证"><a href="#字节长度验证" class="headerlink" title="字节长度验证"></a>字节长度验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 字节长度验证</span><br><span class="line">jQuery.validator.addMethod(&quot;byteRangeLength&quot;, function(value, element, param) &#123;</span><br><span class="line">    var length = value.length;</span><br><span class="line">    for (var i = 0; i &lt; value.length; i++) &#123;</span><br><span class="line">        if (value.charCodeAt(i) &gt; 127) &#123;</span><br><span class="line">            length++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return this.optional(element) || (length &gt;= param[0] &amp;&amp; length &lt;= param[1]);</span><br><span class="line">&#125;, $.validator.format(&quot;请确保输入的值在&#123;0&#125;-&#123;1&#125;个字节之间(一个中文字算2个字节)&quot;));</span><br></pre></td></tr></table></figure><h2 id="电话号码验证"><a href="#电话号码验证" class="headerlink" title="电话号码验证"></a>电话号码验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 电话号码验证</span><br><span class="line">jQuery.validator.addMethod(&quot;phone&quot;, function(value, element) &#123;</span><br><span class="line">    var tel = /^(0[0-9]&#123;2,3&#125;\-)?([2-9][0-9]&#123;6,7&#125;)+(\-[0-9]&#123;1,4&#125;)?$/;</span><br><span class="line">    return this.optional(element) || (tel.test(value));</span><br><span class="line">&#125;, &quot;电话号码格式错误&quot;);</span><br></pre></td></tr></table></figure><h2 id="邮政编码验证"><a href="#邮政编码验证" class="headerlink" title="邮政编码验证"></a>邮政编码验证</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 邮政编码验证</span><br><span class="line">jQuery.validator.addMethod(&quot;zipCode&quot;, function(value, element) &#123;</span><br><span class="line">    var tel = /^[0-9]&#123;6&#125;$/;</span><br><span class="line">    return this.optional(element) || (tel.test(value));</span><br><span class="line">&#125;, &quot;邮政编码格式错误&quot;);</span><br></pre></td></tr></table></figure><h2 id="验证名称是否重复"><a href="#验证名称是否重复" class="headerlink" title="验证名称是否重复"></a>验证名称是否重复</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//验证名称是否重复</span><br><span class="line">jQuery.validator.addMethod(&quot;checkName&quot;, function(value, element)&#123;</span><br><span class="line">    var returnMsg = true;</span><br><span class="line">    jQuery.ajax(&#123;</span><br><span class="line">        type: &quot;get&quot;,</span><br><span class="line">        url: &quot;url&quot;,  </span><br><span class="line">        async: false,</span><br><span class="line">        cache: false,</span><br><span class="line">        data: &#123;   </span><br><span class="line">            toinName: value,</span><br><span class="line">            method: &quot;get&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        dataType:&quot;html&quot;,</span><br><span class="line">        scriptCharset:&quot;UTF-8&quot;,</span><br><span class="line">        success:function(msg)&#123;</span><br><span class="line">            if(msg == &quot;1&quot;) &#123;</span><br><span class="line">                returnMsg=false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);  </span><br><span class="line">    return returnMsg;</span><br><span class="line">&#125;, &quot;此名称已经被占用！请您更换其它名称&quot;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;jQuery-validator-addMethod实例&quot;&gt;&lt;a href=&quot;#jQuery-validator-addMethod实例&quot; class=&quot;headerlink&quot; title=&quot;jQuery.validator.addMethod实例&quot;&gt;&lt;/a&gt;jQ</summary>
+      
+    
+    
+    
+    <category term="jQuery.validator.addMethod" scheme="https://superq314.github.io/categories/jQuery-validator-addMethod/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>VScode扩展插件</title>
+    <link href="https://superq314.github.io/2022/06/18/VScode/VScode%E6%8F%92%E4%BB%B6/"/>
+    <id>https://superq314.github.io/2022/06/18/VScode/VScode%E6%8F%92%E4%BB%B6/</id>
+    <published>2022-06-18T01:02:47.111Z</published>
+    <updated>2022-06-18T07:09:54.473Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="VScode插件"><a href="#VScode插件" class="headerlink" title="VScode插件"></a>VScode插件</h1><h2 id="主题及图标"><a href="#主题及图标" class="headerlink" title="主题及图标"></a>主题及图标</h2><table><thead><tr><th>插件名</th><th>功能</th></tr></thead><tbody><tr><td>One Dark Pro</td><td><code>VScode</code>的最佳选择</td></tr><tr><td>GitHub Theme</td><td>黑白两款皮肤</td></tr><tr><td>Material Theme</td><td>集成了多种主题皮肤，搭配 <code>Material Icon Theme</code>更佳</td></tr><tr><td>Material Icon Theme</td><td>扁平化的主题图标库</td></tr><tr><td>vscode-icons</td><td><code>VScode</code>官方图标库，为<code>VScode</code>资源目录树加上图标</td></tr><tr><td>Emoji</td><td>按<code>f1</code>输入<code>emoji</code>，可以看到有三个选项，分别是<br />      1、<code>emoji</code>表情<br />      2、<code>markdown</code>下的<code>emoji</code><br />      3、<code>unicode</code>下的<code>emoji</code><br />选中一个模式回车进入列表，再回车即可输入到代码中</td></tr><tr><td>:emojisense:</td><td>快捷键：<code>ctrl+i</code></td></tr></tbody></table><h2 id="功能强化"><a href="#功能强化" class="headerlink" title="功能强化"></a>功能强化</h2><table><thead><tr><th>插件名</th><th>功能</th></tr></thead><tbody><tr><td>Chinese (Simplified) Language Pack for<br />Visual Studio Code</td><td>编辑器汉化语言包<br />在 <code>locale.json</code>中添加<code>&quot;locale&quot;: &quot;zh-cn&quot;</code>，即可载入中文（简体）语言包</td></tr><tr><td>settings sync</td><td><code>VScode</code>配置同步到云端，同步所有设置和插件</td></tr><tr><td>wakatime</td><td>编程时间及行为跟踪统计</td></tr><tr><td>**Markdown Preview Enhanced **</td><td><code>markdown</code>编辑和预览，边编辑 <code>markdonwn</code>边预览</td></tr><tr><td>Image Preview</td><td>鼠标悬浮在链接上，可预览图片</td></tr><tr><td>Markdown Preview Enhanced</td><td>在<code>VScode</code>里编写 <code>Markdown</code>，支持预览</td></tr><tr><td>Regex Previewer</td><td>预览正则表达式效果</td></tr><tr><td>SVG Viewer</td><td>预览<code>SVG</code>文件</td></tr><tr><td>TODO Tree</td><td>使用<code>TODO</code>来标记代码，提高可读性；<br />提供可视化窗口来查看和管理<code>TODO Tree</code></td></tr><tr><td>Live Server</td><td>本地静态服务器</td></tr><tr><td>Code Runner</td><td>代码运行器，快捷键：<code>Ctrl+Alt+M</code>，一键运行多种语言运行代码片段或代码文件</td></tr><tr><td>Debugger for Chrome</td><td>前端调试</td></tr></tbody></table><h2 id="Git-集成"><a href="#Git-集成" class="headerlink" title="Git 集成"></a>Git 集成</h2><table><thead><tr><th>插件名</th><th>功能</th></tr></thead><tbody><tr><td>GitHub Pull requests</td><td>在 <code>VScode</code>中查看和管理 <code>GitHub</code>拉取请求和问题</td></tr><tr><td>Git Graph</td><td><code>Git</code>图形化显示和操作</td></tr><tr><td>GitHistory</td><td>可查看和搜索 <code>Git</code>日志以及图形和详细信息；<br />同时还支持分支比较，分支管理等操作</td></tr></tbody></table><h2 id="编程美化"><a href="#编程美化" class="headerlink" title="编程美化"></a>编程美化</h2><table><thead><tr><th>插件名</th><th>功能</th></tr></thead><tbody><tr><td>Bracket Pair Colorizer</td><td>因为此功能现在内置于 <code>VScode</code>，此扩展已弃用</td></tr><tr><td>Bracket Pair Colorizer 2</td><td>常用括号显示不同颜色，让层次结构一目了然；<br />还支持用户自定义符号</td></tr><tr><td>Highlight Matching Tag</td><td>突出显示匹配的开始&#x2F;结束标签</td></tr><tr><td>Beautify</td><td>在代码文件右键鼠标一键格式化 <code>HTML</code>，<code>JS</code>，<code>CSS</code></td></tr><tr><td>Beautify css&#x2F;sass&#x2F;scss&#x2F;less</td><td></td></tr><tr><td>formate: CSS&#x2F;LESS&#x2F;SCSS formatter</td><td><code>CSS</code>样式美化，<code>VScode</code>内置 <code>CSS</code>格式化功能，支持 <code>less</code>，<code>scss</code></td></tr><tr><td>Trailing Spaces</td><td>显示尾随空格</td></tr><tr><td>EditorConfig for VS Code</td><td>代码风格统一</td></tr><tr><td>change-case</td><td>更改命名风格</td></tr><tr><td>Codelf</td><td>给变量起名的神器</td></tr><tr><td>Prettier - Code formatter</td><td>自动格式化代码</td></tr><tr><td>Code Spell Checker</td><td>拼写检查程序，检查不常见的单词，如果单词拼写错误，会给出警告提示</td></tr><tr><td>Color Info</td><td>提供 <code>CSS</code>中使用颜色的相关信息<br />只需在颜色上悬停光标，就可以预览色块中色彩模型的（<code>HEX</code>、<code>RGB</code>、<code>HSL</code>、<code>CMYK</code>）相关信息</td></tr><tr><td>Color Picker</td><td>输入 <code>pick color</code>，调出调色板</td></tr><tr><td>Minify</td><td>用于压缩合并 <code>JS</code>和 <code>CSS</code>文件的应用程序；<br />提供自定义设置，以及自动压缩保存并导出为 <code>.min</code>文件的选项；<br />可分别通过 <code>uglify-js</code>、<code>clean-css</code>、<code>html-minifier</code>与 <code>JS</code>、<code>CSS</code>、<code>HTML</code>协同工作</td></tr></tbody></table><h2 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h2><table><thead><tr><th>插件名</th><th>功能</th></tr></thead><tbody><tr><td><strong>Polacode</strong></td><td>代码截图</td></tr><tr><td><strong>vscode-drawio</strong></td><td>可在<code>VScode</code>里画流程图<br />新建<code>.drawio</code>后缀文件并拖入<code>VScode</code>中，即可得到流程图界面</td></tr><tr><td><strong>Polacode-2020</strong></td><td>可将代码转化成图片</td></tr><tr><td><strong>Markmap</strong></td><td>思维导图神器</td></tr></tbody></table><h2 id="前端开发"><a href="#前端开发" class="headerlink" title="前端开发"></a>前端开发</h2><table><thead><tr><th>插件名</th><th>功能</th></tr></thead><tbody><tr><td>Auto Rename Tag</td><td>自动重命名配对的 <code>HTML/XML</code>标记，修改开始标签，结束标签会同步修改</td></tr><tr><td>Auto Complate Tag</td><td>自动添加 <code>HTML/XML</code>关闭标签</td></tr><tr><td>Auto Close Tag</td><td>自动添加 <code>HTML/XML</code>关闭标签</td></tr><tr><td>Path Intellisense</td><td>智能路径提示，方便快速引入文件</td></tr><tr><td>HTML Snippets</td><td><code>HTML</code>代码片段，该插件可为你提供 <code>HTML</code>标签的代码提示，不用键入尖括号了</td></tr><tr><td>canvas-snippets</td><td></td></tr><tr><td>npm</td><td>支持运行 <code>package.json</code>文件中定义的 <code>npm</code>脚本<br />根据 <code>package.json</code>中定义的依赖项验证已安装的模块</td></tr><tr><td>Npm Intellisense</td><td>可自动完成导入语句中的 <code>npm</code>模块</td></tr><tr><td>Turbo Console Log</td><td>快速添加 <code>console.log</code>信息，<code>JS debug</code>必备快捷键<br />      1、<code>ctrl + alt + l</code>选中变量之后，使用这个快捷键生成 <code> console.log</code><br />      2、<code>alt + shift + c</code>注释所有 <code> console.log</code><br />      3、<code>alt + shift + u</code>启用所有 <code> console.log</code><br />      4、<code>alt + shift + d</code> 删除所有 <code>console.log</code></td></tr><tr><td>css-auto-prefix</td><td></td></tr><tr><td>CSS Peek</td><td><code>CSS</code>样式查看器，可快速查看 <code>CSS</code>样式，非常方便快捷</td></tr><tr><td>open in browser</td><td>快速打开 <code>HTML</code>文件到浏览器预览</td></tr><tr><td>JavaScript (ES6) code snippets</td><td><code>ES6</code>语法智能提示，以及快速输入</td></tr><tr><td>Vetur</td><td><code>Vue</code>开发者必备，内含 <code>语法高亮</code>、<code>智能提示</code>、<code>emmet</code>、<code>错误提示</code>、<code>格式化</code>、<code>自动补全</code>、<code>debugger</code>等实用功能</td></tr><tr><td>json2ts</td><td>自动把 <code>json</code>格式转成 <code>ts</code>的类型，复制 <code>json</code>之后按 <code>ctrl + alt + v</code>即可</td></tr><tr><td>Live Sass Compiler</td><td><code>SASS</code>实时编译</td></tr><tr><td>HTML Boilerplate</td><td>使用 <code>HTML</code>模版，避免重写 <code>HTML</code>头部和正文标签的苦恼。<br />在空文件中输入 <code>HTML</code>，并按 <code>Tab</code>键，即可生成干净的文档结构</td></tr><tr><td>koroFileHeader</td><td>自动添加头部注释和函数注释的插件；<br />支持自定义内容，需要在 <code> settings.json</code>中进行自定义配置</td></tr><tr><td>px to rem &amp; rpx (cssrem)</td><td>自动换算单位的插件，自动换算单位的插件</td></tr><tr><td>ESLint</td><td>规范 <code>js</code>代码书写规则,可自定义规则</td></tr></tbody></table><h2 id="数据库及数据分析"><a href="#数据库及数据分析" class="headerlink" title="数据库及数据分析"></a>数据库及数据分析</h2><table><thead><tr><th>插件名</th><th>功能</th></tr></thead><tbody><tr><td>Oracle Developer Tools for VS Code</td><td><code>Oracle</code>数据库支持</td></tr><tr><td>SQL Server (mssql)</td><td><code>Microsoft SQL Server</code>数据库支持</td></tr><tr><td>MySQL</td><td>支持 <code>MySQL/MariaDB</code>, <code>Microsoft SQL Server</code>, <code>PostgreSQL</code>, <code>Redis</code>, <code>ElasticSearch</code></td></tr><tr><td>MongoDB for VS Code</td><td><code>MongoDB</code>数据库支持</td></tr><tr><td>Sort lines</td><td>对当前文本排序</td></tr><tr><td>Data Preview</td><td>预览数据文件</td></tr></tbody></table><h2 id="摸鱼插件"><a href="#摸鱼插件" class="headerlink" title="摸鱼插件"></a>摸鱼插件</h2><table><thead><tr><th>插件名</th><th>功能</th></tr></thead><tbody><tr><td>LeetCode</td><td>刷题神器</td></tr><tr><td>VSC Netease Music</td><td>网易云音乐（程序员版）</td></tr><tr><td>daily anime</td><td>追番神器</td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;VScode插件&quot;&gt;&lt;a href=&quot;#VScode插件&quot; class=&quot;headerlink&quot; title=&quot;VScode插件&quot;&gt;&lt;/a&gt;VScode插件&lt;/h1&gt;&lt;h2 id=&quot;主题及图标&quot;&gt;&lt;a href=&quot;#主题及图标&quot; class=&quot;headerlink</summary>
+      
+    
+    
+    
+    <category term="VScode" scheme="https://superq314.github.io/categories/VScode/"/>
+    
+    
+    <category term="扩展插件" scheme="https://superq314.github.io/tags/%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络题</title>
@@ -184,8 +274,8 @@
   
   <entry>
     <title>优化页面加载速度</title>
-    <link href="https://superq314.github.io/2022/06/17/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/%E4%BC%98%E5%8C%96%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/"/>
-    <id>https://superq314.github.io/2022/06/17/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/%E4%BC%98%E5%8C%96%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/</id>
+    <link href="https://superq314.github.io/2022/06/17/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E4%BC%98%E5%8C%96%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/"/>
+    <id>https://superq314.github.io/2022/06/17/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E4%BC%98%E5%8C%96%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/</id>
     <published>2022-06-17T10:25:33.613Z</published>
     <updated>2022-04-19T16:45:16.331Z</updated>
     
@@ -425,74 +515,6 @@
     <id>https://superq314.github.io/2022/06/17/Hexo+Butterfly/index-5/</id>
     <published>2022-06-17T10:25:33.132Z</published>
     <updated>2022-04-14T09:46:47.080Z</updated>
-    
-    
-    
-    
-    <category term="Butterfly" scheme="https://superq314.github.io/categories/Butterfly/"/>
-    
-    
-    <category term="butterfly" scheme="https://superq314.github.io/tags/butterfly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-使用阿里iconfont图标</title>
-    <link href="https://superq314.github.io/2022/06/17/Hexo+Butterfly/index-4/"/>
-    <id>https://superq314.github.io/2022/06/17/Hexo+Butterfly/index-4/</id>
-    <published>2022-06-17T10:25:33.129Z</published>
-    <updated>2022-04-14T09:46:39.265Z</updated>
-    
-    
-    
-    
-    <category term="Butterfly" scheme="https://superq314.github.io/categories/Butterfly/"/>
-    
-    
-    <category term="butterfly" scheme="https://superq314.github.io/tags/butterfly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo之更换背景及透明度</title>
-    <link href="https://superq314.github.io/2022/06/17/Hexo+Butterfly/index-3/"/>
-    <id>https://superq314.github.io/2022/06/17/Hexo+Butterfly/index-3/</id>
-    <published>2022-06-17T10:25:33.127Z</published>
-    <updated>2022-04-14T09:46:34.708Z</updated>
-    
-    
-    
-    
-    <category term="Butterfly" scheme="https://superq314.github.io/categories/Butterfly/"/>
-    
-    
-    <category term="butterfly" scheme="https://superq314.github.io/tags/butterfly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Butterfly美化</title>
-    <link href="https://superq314.github.io/2022/06/17/Hexo+Butterfly/index-2/"/>
-    <id>https://superq314.github.io/2022/06/17/Hexo+Butterfly/index-2/</id>
-    <published>2022-06-17T10:25:33.124Z</published>
-    <updated>2022-04-14T09:46:19.760Z</updated>
-    
-    
-    
-    
-    <category term="Butterfly" scheme="https://superq314.github.io/categories/Butterfly/"/>
-    
-    
-    <category term="butterfly" scheme="https://superq314.github.io/tags/butterfly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo、部署、上线</title>
-    <link href="https://superq314.github.io/2022/06/17/Hexo+Butterfly/index-1/"/>
-    <id>https://superq314.github.io/2022/06/17/Hexo+Butterfly/index-1/</id>
-    <published>2022-06-17T10:25:33.122Z</published>
-    <updated>2022-04-16T07:42:17.747Z</updated>
     
     
     
