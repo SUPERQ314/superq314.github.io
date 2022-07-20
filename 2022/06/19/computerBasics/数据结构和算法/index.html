@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>数据结构和算法 | superQ的个人小站</title><meta name="keywords" content="数据结构和算法"><meta name="author" content="superQ,220202090@seu.edu.cn"><meta name="copyright" content="superQ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="复杂度大O表示法 O(1) 常量阶 O(logn) 对数阶 O(n) 线性阶 O(nlogn) 线性对数阶 O(n²) 平方阶 O(n^k) K方阶 O(2^n) 指数阶 O(n!) 阶乘阶  复杂度时间复杂度空间复杂度最好时间复杂度：在最理想的情况下，执行这段代码的时间复杂度。最坏时间复杂度：在最糟糕的情况下，执行这段代码的时间复杂度平均时间复杂度：用代码在所有情况下执行的次数的加权平均值表示平">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构和算法">
+<meta property="og:url" content="https://superq314.github.io/2022/06/19/computerBasics/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="superQ的个人小站">
+<meta property="og:description" content="复杂度大O表示法 O(1) 常量阶 O(logn) 对数阶 O(n) 线性阶 O(nlogn) 线性对数阶 O(n²) 平方阶 O(n^k) K方阶 O(2^n) 指数阶 O(n!) 阶乘阶  复杂度时间复杂度空间复杂度最好时间复杂度：在最理想的情况下，执行这段代码的时间复杂度。最坏时间复杂度：在最糟糕的情况下，执行这段代码的时间复杂度平均时间复杂度：用代码在所有情况下执行的次数的加权平均值表示平">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg">
+<meta property="article:published_time" content="2022-06-19T09:44:59.540Z">
+<meta property="article:modified_time" content="2022-07-03T15:13:02.395Z">
+<meta property="article:author" content="superQ">
+<meta property="article:tag" content="数据结构和算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://superq314.github.io/2022/06/19/computerBasics/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据结构和算法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-07-03 23:13:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_3332915_ymmoy7wnkg.css"><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="superQ的个人小站" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2022/04/11/qDzgSLuwBd48iJG.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">163</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">51</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴刻度</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 类目</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 回忆</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/galleryGroup/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-game"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/HTML/index.html"><i class="fa-fw fa fa-id-card"></i><span> myself</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/"><i class="fa-fw fa fa-heart"></i><span> butterfly主题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-sitemap"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">superQ的个人小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴刻度</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 类目</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 回忆</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/galleryGroup/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-game"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/HTML/index.html"><i class="fa-fw fa fa-id-card"></i><span> myself</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/"><i class="fa-fw fa fa-heart"></i><span> butterfly主题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-sitemap"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据结构和算法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-19T09:44:59.540Z" title="发表于 2022-06-19 17:44:59">2022-06-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-03T15:13:02.395Z" title="更新于 2022-07-03 23:13:02">2022-07-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数据结构和算法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><h3 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h3><ul>
+<li>O(1) 常量阶</li>
+<li>O(logn) 对数阶</li>
+<li>O(n) 线性阶</li>
+<li>O(nlogn) 线性对数阶</li>
+<li>O(n²) 平方阶 O(n^k) K方阶</li>
+<li>O(2^n) 指数阶</li>
+<li>O(n!) 阶乘阶</li>
+</ul>
+<h3 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h3><p>时间复杂度<br>空间复杂度<br>最好时间复杂度：在最理想的情况下，执行这段代码的时间复杂度。<br>最坏时间复杂度：在最糟糕的情况下，执行这段代码的时间复杂度<br>平均时间复杂度：用代码在所有情况下执行的次数的加权平均值表示<br>平摊时间复杂度：在代码执行的所有复杂度情况中绝大部分是低级别的复杂度，个别情况是高级别复杂度且发生具有时序关系时，可以将个别高级别复杂度均摊到低级别复杂度上。基本上均摊结果就等于低级别复杂度。</p>
+<p>刷题计划</p>
+<ul>
+<li><a href="https://security.feishu.cn/link/safety?target=https://leetcode-cn.com/study-plan/algorithms/?progress=2vmobjd&from=from_parent_mindnote&scene=ccm&logParams=%7B%22location%22:%22ccm_mindnote%22%7D&lang=zh-CN">「算法」 - 学习计划 - 力扣（LeetCode）全球极客挚爱的技术成长平台 (leetcode-cn.com)</a></li>
+<li><a href="https://security.feishu.cn/link/safety?target=https://leetcode-cn.com/study-plan/data-structures/?from=from_parent_mindnote&scene=ccm&logParams=%7B%22location%22:%22ccm_mindnote%22%7D&lang=zh-CN">「数据结构」 - 学习计划 - 力扣（LeetCode）全球极客挚爱的技术成长平台 (leetcode-cn.com)</a></li>
+<li><a href="https://security.feishu.cn/link/safety?target=https://leetcode-cn.com/study-plan/lcof/?from=from_parent_mindnote&scene=ccm&logParams=%7B%22location%22:%22ccm_mindnote%22%7D&lang=zh-CN">「剑指 Offer」 - 学习计划 - 力扣（LeetCode）全球极客挚爱的技术成长平台 (leetcode-cn.com)</a></li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h3><h3 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h3><p>解题思路</p>
+<blockquote>
+<p>理解指针的引用和含义：将某个变量赋值给指针，实际上就是将这个变量的地址赋值给指针，或者反过来说，指针中存储了这个变量的内存地址，指向了这个变量，通过指针就能找到这个变量。</p>
+</blockquote>
+<ul>
+<li>警惕指针丢失和内存泄漏</li>
+<li>利用哨兵简化实现难度</li>
+<li>重点留意边界条件处理</li>
+<li>举例画图，辅助思考</li>
+</ul>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>特点：先进后出，后进先出</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>冒泡排序<br>插入排序<br>选择排序<br>快速排序<br>归并排序<br>堆排序</p>
+<ul>
+<li>堆必须是个完全二叉树</li>
+<li>堆中的每个节点的值必须 ≥ 或者 ≤ 每个子节点的值<br>希尔排序</li>
+</ul>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="BFC-广度优先遍历"><a href="#BFC-广度优先遍历" class="headerlink" title="BFC 广度优先遍历"></a>BFC 广度优先遍历</h3><h3 id="DFS-深度优先遍历"><a href="#DFS-深度优先遍历" class="headerlink" title="DFS 深度优先遍历"></a>DFS 深度优先遍历</h3><h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p><img src="/image/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/1656860209180.png" alt="1656860209180"><br><img src="/image/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/1656860343948.png" alt="1656860343948"></p>
+<ul>
+<li>满二叉树：除根节点以外，每个子节点都有2个叶子节点</li>
+<li>完全二叉树：除最后一层节点外，上层节点必须达到最大，并且最后一层子节点向左排列</li>
+<li>二叉搜索树<ul>
+<li>特点：在树中任意一个节点，左边的每个节点，都要小于这个节点，而右边的都要大于这个节点</li>
+<li>优点：支持快速查找、插入、删除等</li>
+<li>缺点：针对有重复数据的情况下，查找、插入、删除的时间复杂度会和高度成正比，会退化成链表和完全二叉树，所以就有了平衡二叉树</li>
+</ul>
+</li>
+</ul>
+<h3 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h3><ul>
+<li>前序：先打印当前叶子根节点，在打印他的左叶子节点，然后是右叶子节点</li>
+<li>中序：先打印它的左叶子节点，然后打印当前叶子节点的跟节点，最后打印右节点</li>
+<li>后序：先打印它的左叶子节点，然后打印右叶子节点，最后打印跟节点</li>
+<li>层序遍历<br><img src="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/all/boxcnirG2vXyY4TgXxJJ2G0Cbpf?mount_node_token=bmncnsQc1yLWkuqlAXdRvQuG5kg&mount_point=mindnote_image" alt="img"><img src="/image/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/1656860359582.png" alt="1656860359582"></li>
+</ul>
+<p>平衡二叉树：二叉树中任意一个节点的左右子树的高度相差不能大于1</p>
+<p>红黑树<br>特点</p>
+<ul>
+<li>跟节点是黑色的</li>
+<li>每个叶子节点都是黑色的null节点，也就是说，红色节点是被黑色节点隔开的</li>
+<li>每个节点，从该节点到达其可达叶子节点的所有路径，都包含相同数目的黑色节点</li>
+</ul>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a><a target="_blank" rel="noopener" href="https://ufkqhva2uf.feishu.cn/docs/doccnwHXBILHprsioNn6p3n69Oq?from=from_parent_mindnote">图</a></h2><p>树中的元素被称为节点，而图中的元素则被称为顶点，图中的一个顶点与任意其他顶点建立连接关系，这种关系被称为边，跟顶点相连接的边的条数被称为度。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>有向图：边有方向<br>无向图：边没有方向<br>带权图：每条边都有一个权重，可以通过权重来表示关系</p>
+<h3 id="邻接矩阵存储"><a href="#邻接矩阵存储" class="headerlink" title="邻接矩阵存储"></a>邻接矩阵存储</h3><p>邻接矩阵是通过二维数组去存储的</p>
+<p>无向图</p>
+<ul>
+<li>如果顶点 i 和顶点 j 之间有边，我们就将 A[i][j] 和 A[j][i] 标记为1</li>
+</ul>
+<p>有向图</p>
+<ul>
+<li>如果顶点 i 和顶点 j 之间，有一条箭头从顶点 i 指向顶点 j 的边，那我们就将 A[i][j] 标记为1，同理，从顶点 J 指向顶点 I，那就将 A[J][I] 标记为1</li>
+</ul>
+<p>带权图</p>
+<ul>
+<li>数组中就存储相应的权重<br><img src="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/all/boxcn1iFGEiKbs8og0iWrkOo4O5?mount_node_token=bmncnsQc1yLWkuqlAXdRvQuG5kg&mount_point=mindnote_image">优点</li>
+<li>存储方式简单，直接，基于数组，在获取两个顶点的关系时，非常高效</li>
+<li>方便计算，通过邻接矩阵存储图，可以将很多图的运算转换为矩阵之间的运算<br>缺点</li>
+<li>如果存储的是顶点很多，单每个顶点的边并不多，就会造成空间浪费</li>
+</ul>
+<h3 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h3><h2 id="动态规划-DP"><a href="#动态规划-DP" class="headerlink" title="动态规划 DP"></a>动态规划 DP</h2><p><a href="https://security.feishu.cn/link/safety?target=https://oi-wiki.org/dp/basic/?from=from_parent_mindnote&scene=ccm&logParams=%7B%22location%22:%22ccm_mindnote%22%7D&lang=zh-CN">动态规划基础 - OI Wiki (oi-wiki.org)</a></p>
+<h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a><a target="_blank" rel="noopener" href="https://ufkqhva2uf.feishu.cn/docs/doccnE9dRmuvBzAgqgEqPgUiICh?from=from_parent_mindnote">二分查找</a></h2><p>二分查找是通过每次计算数组中间的值，并通过low和high记录一个最高和最低值，并且每次循环计算的时候，不算缩小low和high的差距，最终并返回结果<br>二分查找适合有序的数组，时间复杂度为O(logn)</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/SUPERQ314">superQ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://superq314.github.io/2022/06/19/computerBasics/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">https://superq314.github.io/2022/06/19/computerBasics/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://SUPERQ314.github.io" target="_blank">superQ的个人小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">数据结构和算法</a></div><div class="post_share"><div class="social-share" data-image="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/19/computerBasics/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"><img class="prev-cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机组成原理</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/19/computerBasics/%E6%95%B0%E6%8D%AE%E5%BA%93/"><img class="next-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据库</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2022/04/11/qDzgSLuwBd48iJG.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">superQ</div><div class="author-info__description">学技术 提升自己</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">163</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">51</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SUPERQ314"><i class="fab fa-github"></i><span>Follow Me！</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SUPERQ314" target="_blank" title="fa fa-github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1078857679@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1078857679" target="_blank" title="iconfont icon-QQ"><i class="fas fa-qq"></i></a><a class="social-icon" href="https://www.zhihu.com/people/qin-chao-10-90" target="_blank" title="iconfont icon-zhihu"><i class="fas fa-zhihu"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">superQ的个人小站！一只学习前端开发的菜鸟甜甜圈~</div></div><div class="card-widget card-widget 所寫的 class_name" id="所寫的 id_name"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">复杂度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7O%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">大O表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6-1"><span class="toc-number">1.2.</span> <span class="toc-text">复杂度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">2.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-number">3.1.</span> <span class="toc-text">单链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="toc-number">3.2.</span> <span class="toc-text">双链表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-number">4.</span> <span class="toc-text">队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88"><span class="toc-number">5.</span> <span class="toc-text">栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">6.</span> <span class="toc-text">排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">7.</span> <span class="toc-text">搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86"><span class="toc-number">7.1.</span> <span class="toc-text">BFC 广度优先遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DFS-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86"><span class="toc-number">7.2.</span> <span class="toc-text">DFS 深度优先遍历</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">8.</span> <span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="toc-number">8.1.</span> <span class="toc-text">遍历方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE"><span class="toc-number">9.</span> <span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">9.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%AD%98%E5%82%A8"><span class="toc-number">9.2.</span> <span class="toc-text">邻接矩阵存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8"><span class="toc-number">9.3.</span> <span class="toc-text">邻接表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-DP"><span class="toc-number">10.</span> <span class="toc-text">动态规划 DP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-number">11.</span> <span class="toc-text">贪心算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-number">12.</span> <span class="toc-text">二分查找</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/18/frontEnd/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92/" title="重绘重排"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="重绘重排"/></a><div class="content"><a class="title" href="/2022/07/18/frontEnd/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92/" title="重绘重排">重绘重排</a><time datetime="2022-07-18T09:59:39.122Z" title="发表于 2022-07-18 17:59:39">2022-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/18/frontEnd/JavaScript/%E9%A2%84%E8%A7%A3%E6%9E%90(%E6%8F%90%E5%8D%87)/" title="预解析(提升)"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="预解析(提升)"/></a><div class="content"><a class="title" href="/2022/07/18/frontEnd/JavaScript/%E9%A2%84%E8%A7%A3%E6%9E%90(%E6%8F%90%E5%8D%87)/" title="预解析(提升)">预解析(提升)</a><time datetime="2022-07-18T07:56:14.554Z" title="发表于 2022-07-18 15:56:14">2022-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/18/frontEnd/JavaScript/%E5%8F%98%E9%87%8F/" title="变量"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="变量"/></a><div class="content"><a class="title" href="/2022/07/18/frontEnd/JavaScript/%E5%8F%98%E9%87%8F/" title="变量">变量</a><time datetime="2022-07-18T07:55:14.038Z" title="发表于 2022-07-18 15:55:14">2022-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/18/frontEnd/JavaScript/%E4%BD%9C%E7%94%A8%E5%9F%9F/" title="作用域"><img src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="作用域"/></a><div class="content"><a class="title" href="/2022/07/18/frontEnd/JavaScript/%E4%BD%9C%E7%94%A8%E5%9F%9F/" title="作用域">作用域</a><time datetime="2022-07-18T07:47:07.260Z" title="发表于 2022-07-18 15:47:07">2022-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/18/frontEnd/JavaScript/%E5%87%BD%E6%95%B0/" title="函数"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="函数"/></a><div class="content"><a class="title" href="/2022/07/18/frontEnd/JavaScript/%E5%87%BD%E6%95%B0/" title="函数">函数</a><time datetime="2022-07-18T07:47:04.977Z" title="发表于 2022-07-18 15:47:04">2022-07-18</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022.04 - 2022 By superQ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome to my <a target="_blank" rel="noopener" href="https://www.antmoe.com/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'forest' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="true" data-listfolded="true"> </div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
