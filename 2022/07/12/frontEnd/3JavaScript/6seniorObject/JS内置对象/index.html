@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>JS内置对象 | superQ的个人小站</title><meta name="keywords" content="JavaScript"><meta name="author" content="superQ,220202090@seu.edu.cn"><meta name="copyright" content="superQ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="JavaScript学习笔记 JavaScript内置对象 内置对象就是js语言自带的一些对象，这些对象供开发者使用，并提供了一些常用的或是最基本而必要的功能（属性和方法） 内置对象最大的优点是帮助程序员快速开发 JavaScript提供的内置对象：Math、Date、Array、String、RegExp对象 标准内置对象的分类 值属性，这些全局属性返回一个简单值，这些值没有自己的属性和方法。例">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>JS内置对象 | superQ的个人小站</title><meta name="keywords" content="JavaScript"><meta name="author" content="superQ,220202090@seu.edu.cn"><meta name="copyright" content="superQ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="JavaScript学习笔记 JavaScript内置对象 内置对象就是js语言自带的一些对象，这些对象供开发者使用，并提供了一些常用的或是最基本而必要的功能（属性和方法） 内置对象最大的优点是帮助程序员快速开发 JavaScript提供的内置对象：Math、Date、Array、String、RegExp对象 标准内置对象的分类详细资料可以参考：《标准内置对象的分类》 《JS 所有内置对象属性和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS内置对象">
 <meta property="og:url" content="https://superq314.github.io/2022/07/12/frontEnd/3JavaScript/6seniorObject/JS%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="superQ的个人小站">
-<meta property="og:description" content="JavaScript学习笔记 JavaScript内置对象 内置对象就是js语言自带的一些对象，这些对象供开发者使用，并提供了一些常用的或是最基本而必要的功能（属性和方法） 内置对象最大的优点是帮助程序员快速开发 JavaScript提供的内置对象：Math、Date、Array、String、RegExp对象 标准内置对象的分类 值属性，这些全局属性返回一个简单值，这些值没有自己的属性和方法。例">
+<meta property="og:description" content="JavaScript学习笔记 JavaScript内置对象 内置对象就是js语言自带的一些对象，这些对象供开发者使用，并提供了一些常用的或是最基本而必要的功能（属性和方法） 内置对象最大的优点是帮助程序员快速开发 JavaScript提供的内置对象：Math、Date、Array、String、RegExp对象 标准内置对象的分类详细资料可以参考：《标准内置对象的分类》 《JS 所有内置对象属性和">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg">
 <meta property="article:published_time" content="2022-07-12T12:57:07.667Z">
-<meta property="article:modified_time" content="2022-09-06T03:07:59.057Z">
+<meta property="article:modified_time" content="2022-09-13T03:13:44.292Z">
 <meta property="article:author" content="superQ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -53,7 +53,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-09-06 11:07:59'
+  postUpdate: '2022-09-13 11:13:44'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -143,30 +143,50 @@
     }
     detectApple()
     })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_3332915_ymmoy7wnkg.css"><link rel="stylesheet" href="themes/butterfly/source/css/iconfont.css"><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="superQ的个人小站" type="application/atom+xml">
-</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2022/04/11/qDzgSLuwBd48iJG.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">210</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 文章时间戳</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 赋闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/galleryGroup/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/HTML/resume/index.html"><i class="fa-fw fa fa-id-card"></i><span> myself</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/"><i class="fa-fw fa fa-heart"></i><span> butterfly主题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-sitemap"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">superQ的个人小站</a></span><div id="he-plugin-simple"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 文章时间戳</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 赋闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/galleryGroup/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/HTML/resume/index.html"><i class="fa-fw fa fa-id-card"></i><span> myself</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/"><i class="fa-fw fa fa-heart"></i><span> butterfly主题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-sitemap"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JS内置对象</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-12T12:57:07.667Z" title="发表于 2022-07-12 20:57:07">2022-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-06T03:07:59.057Z" title="更新于 2022-09-06 11:07:59">2022-09-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/">JavaScript</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7118259341060210701#heading-90">JavaScript学习笔记</a></p>
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2022/04/11/qDzgSLuwBd48iJG.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">216</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 文章时间戳</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 赋闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/galleryGroup/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/HTML/resume/index.html"><i class="fa-fw fa fa-id-card"></i><span> myself</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/"><i class="fa-fw fa fa-heart"></i><span> butterfly主题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-sitemap"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">superQ的个人小站</a></span><div id="he-plugin-simple"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 文章时间戳</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 赋闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/galleryGroup/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/HTML/resume/index.html"><i class="fa-fw fa fa-id-card"></i><span> myself</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/"><i class="fa-fw fa fa-heart"></i><span> butterfly主题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-sitemap"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JS内置对象</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-12T12:57:07.667Z" title="发表于 2022-07-12 20:57:07">2022-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-13T03:13:44.292Z" title="更新于 2022-09-13 11:13:44">2022-09-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/">JavaScript</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7118259341060210701#heading-90">JavaScript学习笔记</a></p>
 <p>JavaScript内置对象</p>
 <p>内置对象就是js语言自带的一些对象，这些对象供开发者使用，并提供了一些常用的或是最基本而必要的功能（属性和方法）</p>
 <p>内置对象最大的优点是帮助程序员快速开发</p>
 <p>JavaScript提供的内置对象：Math、Date、Array、String、RegExp对象</p>
-<h2 id="标准内置对象的分类"><a href="#标准内置对象的分类" class="headerlink" title="标准内置对象的分类"></a>标准内置对象的分类</h2><ol>
-<li>值属性，这些全局属性返回一个简单值，这些值没有自己的属性和方法。<br>例如Infinity、NaN、undefined、null 字面量</li>
-<li>函数属性，全局函数可以直接调用，不需要在调用时指定所属对象，执行结束后会将结果直接返回给调用者。<br>例如 eval()、parseFloat()、parseInt()等</li>
-<li>基本对象，基本对象是定义或使用其他对象的基础。基本对象包括一般对象、函数对象和错误对象。<br>例如Object、Function、Boolean、Symbol、Error等</li>
-<li>数字和日期对象，用来表示数字、日期和执行数学计算的对象。<br>例如Number、Math、Date</li>
-<li>字符串，用来表示和操作字符串的对象。<br>例如String、RegExp</li>
-<li>可索引的集合对象，这些对象表示按照索引值来排序的数据集合，包括数组和类型数组，以及类数组结构的对象。例如Array</li>
-<li>使用键的集合对象，这些集合对象在存储数据时会使用到键，支持按照插入顺序来迭代元素。<br>例如Map、Set、WeakMap、WeakSet</li>
-<li>矢量集合，SIMD矢量集合中的数据会被组织为一个数据序列。<br>例如SIMD等</li>
-<li>结构化数据，这些对象用来表示和操作结构化的缓冲区数据，或使用JSON编码的数据。<br>例如JSON等</li>
-<li>控制抽象对象<br>例如Promise、Generator等</li>
-<li>反射<br>例如Reflect、Proxy</li>
-<li>国际化，为了支持多语言处理而加入ECMAScript的对象。<br>例如Intl、Intl.Collator 等</li>
-<li>WebAssembly</li>
-<li>其他<br>例如arguments</li>
-</ol>
-<p>详细资料可以参考：<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects">《标准内置对象的分类》</a></p>
+<h2 id="标准内置对象的分类"><a href="#标准内置对象的分类" class="headerlink" title="标准内置对象的分类"></a>标准内置对象的分类</h2><p>详细资料可以参考：<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects">《标准内置对象的分类》</a></p>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011467723#articleHeader24">《JS 所有内置对象属性和方法汇总》</a></p>
-<h2 id="Math-数学对象"><a href="#Math-数学对象" class="headerlink" title="Math 数学对象"></a>Math 数学对象</h2><p>Math数学对象，不是一个构造函数，不需要new来调用，可直接使用里面的属性和方法</p>
+<h2 id="Number-数值对象"><a href="#Number-数值对象" class="headerlink" title="Number 数值对象"></a>Number 数值对象</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number">Number - JavaScript | MDN (mozilla.org)</a></p>
+<p>JavaScript 的 <strong><code>Number</code></strong> 对象是经过封装的能让你处理数字值的对象。<code>Number</code> 对象由 <code>Number()</code> 构造器创建。</p>
+<p>JavaScript 的 <code>Number</code>类型为<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">双精度 IEEE 754 64 位浮点</a>类型。</p>
+<div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">属性</button></li><li class="tab"><button type="button" data-href="#super-2">方法</button></li><li class="tab"><button type="button" data-href="#super-3">实例方法</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">Number.EPSILON</button></li><li class="tab"><button type="button" data-href="#super-2">Number.MAX_SAFE_INTEGER</button></li><li class="tab"><button type="button" data-href="#super-3">Number.MAX_VALUE</button></li><li class="tab"><button type="button" data-href="#super-4">Number.MIN_SAFE_INTEGER</button></li><li class="tab"><button type="button" data-href="#super-5">Number.MIN_VALUE</button></li><li class="tab"><button type="button" data-href="#super-6">Number.NaN</button></li><li class="tab"><button type="button" data-href="#super-7">Number.NEGATIVE_INFINITY</button></li><li class="tab"><button type="button" data-href="#super-8">Number.POSITIVE_INFINITY</button></li><li class="tab"><button type="button" data-href="#super-9">Number.prototype(en-US)</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><p><code>epsilon</code><br>两个可表示 (representable) 数之间的最小间隔。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><p><code>max_safe_integer</code><br>JavaScript 中最大的安全整数 (<code>2^53 - 1</code>)。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-3"><p><code>max_value</code><br>能表示的最大正数。最小的负数是 <code>-MAX_VALUE</code>。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-4"><p><code>min_safe_integer</code><br>JavaScript 中最小的安全整数 (<code>-(2^53 - 1)</code>).</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-5"><p><code>min_value</code><br>能表示的最小正数即最接近 0 的正数 (实际上不会变成 0)。最大的负数是 <code>-MIN_VALUE</code>。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-6"><p>特殊的“非数字”值。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-7"><p><code>negative_infinity</code><br>特殊的负无穷大值，在溢出时返回该值。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-8"><p><code>positive_infinity</code><br>特殊的正无穷大值，在溢出时返回该值。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-9"><p>Number 对象上允许的额外属性。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">Number.isNaN()</button></li><li class="tab"><button type="button" data-href="#super-2">Number.isFinite()</button></li><li class="tab"><button type="button" data-href="#super-3">Number.isInteger()</button></li><li class="tab"><button type="button" data-href="#super-4">Number.isSafeInteger()</button></li><li class="tab"><button type="button" data-href="#super-5">Number.parseFloat()</button></li><li class="tab"><button type="button" data-href="#super-6">Number.parseInt()</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><p>作用：确定传递的值是否是 NaN。<br><code>Number.isNaN(value)</code><br>参数：<br>    - value：要检测是否为 NaN 的值。<br>返回值：<br>    * 布尔值，表示给定的值是否是 NaN。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><p>作用：确定传递的值类型及本身是否是有限数。<br><code>Number.isFinite(value)</code><br>参数：<br>    - value：要被检测有穷性的值。<br>返回值<br>    * 布尔值 表示给定的值是否是一个有穷数。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-3"><p>作用：确定传递的值类型是“number”，且是整数。<br><code>Number.isInteger(Number)</code><br>参数：<br>    - number：检测的值<br>返回值：<br>    * 布尔值（true&#x2F;false）</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-4"><p>作用：确定传递的值是否为安全整数 ( -(2^53 - 1) 至 2^53 - 1) 之间。<br><code>Number.isSafeInteger(testValue)</code><br>参数：<br>    - testValue：需要检测的参数。<br>返回值：<br>    * 布尔值 表示给定的值是否是一个安全整数（safe integer）。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-5"><p>作用：和全局对象 parseFloat() 一样。<br><code>Number.parseFloat(string)</code><br>参数：<br>    - string：被解析的字符串。<br>返回值<br>    * 给定值被解析成浮点数，如果无法被解析成浮点数，则返回NaN</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-6"><p>作用：和全局对象 parseInt() 一样。<br><code>Number.parseInt(string[, radix])</code><br>参数：<br>    - string：要解析的值。 如果此参数不是字符串，则使用 ToString 抽象操作将其转换为字符串。忽略此参数中的前导空格。<br>    - radix：一个介于 2 到 36 之间的整数，代表字符串的基数 (数学数字系统中的基)。<br>返回值<br>    * 转换后的整型数</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-3"><div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">Number.prototype.toExponential(fractionDigits)</button></li><li class="tab"><button type="button" data-href="#super-2">Number.prototype.toFixed(digits)</button></li><li class="tab"><button type="button" data-href="#super-3">Number.prototype.toLocaleString([locales [, options]])</button></li><li class="tab"><button type="button" data-href="#super-4">Number.prototype.toPrecision(precision)</button></li><li class="tab"><button type="button" data-href="#super-5">Number.prototype.toString([radix])</button></li><li class="tab"><button type="button" data-href="#super-6">Number.prototype.valueOf()</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><p>作用：将数值转换成指数形式，返回字符串。<br><code>numObj.toExponential(fractionDigits)</code><br>参数<br>    - fractionDigits（可选）：整数，用来指定小数点后有几位数字。默认情况下用尽可能多的位数来显示数字。<br>返回值<br>    * 使用指数形式表示的字符串<br>异常<br>    * RangeError<br>        如果 fractionDigits 太小或太大将会抛出该错误。介于 0 和 20（包括 20）之间的值不会引起 RangeError 。 执行环境也可以支持更大或更小范围。<br>    * TypeError<br>        如果该方法在一个非数值类型对象上调用。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><p>作用：将数值保留指定位数的小数位。<br><code>numObj.toFixed(digits)</code><br>参数<br>    - digits：小数点后数字的个数；介于 0 到 20（包括）之间。如果忽略该参数，则默认为 0。<br>返回值<br>    * 定点表示法格式化后的字符串。</p>
+<p>抛出异常<br>    * RangeError<br>        如果 digits 参数太小或太大。0 到 20（包括）之间的值不会引起 RangeError。实现环境（implementations）也可以支持更大或更小的值。<br>    * TypeError<br>        如果该方法在一个非Number类型的对象上调用。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-3"><p>作用：返回数字在特定语言环境下表示的字符串。覆盖 Object.prototype.toLocaleString() 方法。<br><code>numObj.toLocaleString([locales [, options]])</code><br>参数：<br>返回值<br>    * 返回一个语言环境下的表示字符串。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-4"><p>作用：以指定精度返回该数值的字符串表示形式。<br><code>numObj.toPrecision(precision)</code><br>参数<br>    - precision（可选）：一个用来指定有效数个数的整数。<br>返回值<br>    * 指定位数表示的字符串。<br>异常<br>    * RangeError<br>        如果 precison 参数不在 1 和 100（包括）之间，将会抛出一个 RangeError 。执行环境也可以支持更大或更小的范围。ECMA-262 只需要最多 21 位显示数字。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-5"><p>作用：返回一个代表给定对象的字符串，基于指定的基数。<br><code>numObj.toString([radix])</code><br>参数：<br>    - radix：指定要用于数字到字符串的转换的基数 (从 2 到 36)。如果未指定 radix 参数，则默认值为 10。<br>返回值：<br>    * 字符串<br>异常信息<br>    * RangeError<br>        如果 toString() 的 radix 参数不在 2 到 36 之间，将会抛出一个 RangeError。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-6"><p>作用：返回指定对象的原始值。覆盖 Object.prototype.valueOf() 方法。<br><code>numObj.valueOf()</code><br>返回值<br>    * 表示指定 Number 对象的原始值的数字</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<p>转换函数比较</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符串</th>
+<th align="center"><code>parseInt(string)</code></th>
+<th align="center"><code>parseFloat(string)</code></th>
+<th align="center"><code>Number(value)</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">“1.1”</td>
+<td align="center">1</td>
+<td align="center">1.1</td>
+<td align="center">1.1</td>
+</tr>
+<tr>
+<td align="center">“12.3a4”</td>
+<td align="center">12</td>
+<td align="center">12.3</td>
+<td align="center">NaN</td>
+</tr>
+<tr>
+<td align="center">“www”</td>
+<td align="center">NaN</td>
+<td align="center">NaN</td>
+<td align="center">NaN</td>
+</tr>
+</tbody></table>
+<h2 id="Math-数学对象"><a href="#Math-数学对象" class="headerlink" title="Math 数学对象"></a>Math 数学对象</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math">Math - JavaScript | MDN (mozilla.org)</a></p>
+<p>Math数学对象，不是一个构造函数，不需要new来调用，可直接使用里面的属性和方法</p>
 <table>
 <thead>
 <tr>
@@ -227,7 +247,8 @@
 <p>公式：<code>Math.floor(Math.random() * (max - min + 1)) + min</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到两个数之间的随机数，并且包含这两个数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getRandom</span>(<span class="params">min, max</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * (max - min + <span class="number">1</span>)) + min;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">getRandom</span>(<span class="number">1</span>, <span class="number">100</span>))</span><br></pre></td></tr></table></figure>
 
-<h2 id="Date-日期对象"><a href="#Date-日期对象" class="headerlink" title="Date 日期对象"></a>Date 日期对象</h2><p>Date() 日期对象是一个 <strong>构造函数</strong>，必须使用<strong>new</strong>来调用创建日期对象</p>
+<h2 id="Date-日期对象"><a href="#Date-日期对象" class="headerlink" title="Date 日期对象"></a>Date 日期对象</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date">Date - JavaScript | MDN (mozilla.org)</a></p>
+<p>Date() 日期对象是一个 <strong>构造函数</strong>，必须使用<strong>new</strong>来调用创建日期对象</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date);</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -370,315 +391,110 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Date</span>.<span class="title function_">now</span>())</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 
-<h2 id="Array-数组对象"><a href="#Array-数组对象" class="headerlink" title="Array 数组对象"></a>Array 数组对象</h2><div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">创建</button></li><li class="tab"><button type="button" data-href="#super-2">数组检测</button></li><li class="tab"><button type="button" data-href="#super-3">操作</button></li><li class="tab"><button type="button" data-href="#super-4">添加/删除元素</button></li><li class="tab"><button type="button" data-href="#super-5">排序</button></li><li class="tab"><button type="button" data-href="#super-6">获取元素索引</button></li><li class="tab"><button type="button" data-href="#super-7">转换成字符串</button></li><li class="tab"><button type="button" data-href="#super-8">迭代方法</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><ul>
-<li>数组字面量</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<h2 id="Array-数组对象"><a href="#Array-数组对象" class="headerlink" title="Array 数组对象"></a>Array 数组对象</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array">Array - JavaScript | MDN (mozilla.org)</a></p>
+<a href="/2022/07/18/frontEnd/3JavaScript/0ECMAScriptBasics/dataStructure/%E6%95%B0%E7%BB%84/" title="数组">数组</a>
 
-<ul>
-<li>new Array()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>(); <span class="comment">// 创建了一个空的数组</span></span><br><span class="line"><span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">2</span>); <span class="comment">// 这个括号里面的2表示：数组的长度为2，里面有两个空的数组元素</span></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 相当于var arr2 = [2,3]  这时括号内表示：有两个数组元素是 2 和 3</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><ul>
-<li>instanceof 运算符：可检测是否为数组，结果为布尔值（true&#x2F;false）</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [], obj = &#123;&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr <span class="keyword">instanceof</span> <span class="title class_">Array</span>); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj <span class="keyword">instanceof</span> <span class="title class_">Array</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Array.isArray()：如果对象是Array，则为true，否则为false</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [], obj = &#123;&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">isArray</span>(arr)); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">isArray</span>(obj)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>Array.isArray() 和 instanceof的区别：</p>
-<ul>
-<li>当检测Array实例时，Array.isArray 优于 instanceof，因为Array.isArray 能检测 iframes</li>
-<li>Array.isArray 是H5新增的方法，IE9以上版本支持</li>
-</ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-3"><table>
-<thead>
-<tr>
-<th align="center">方法名</th>
-<th>说明</th>
-<th>返回值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">.concat()</td>
-<td>基于当前数组中的所有项创建一个新数组，若有参数，添加数组末尾</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">.slice()</td>
-<td>一参数：返回该参数指定位置到末尾的所有的项目<br />二参数：返回起始和结束之间的项，不包括结束位置<br />若有负数，则用数组长度加上该数来确定相应的位置</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">.splice()</td>
-<td>向数组的中部插入项<br />删除：splice(0,2) &#x2F;&#x2F; 起始位置，要删除的项数<br />插入：.splice(2,0,”red”,”green”) &#x2F;&#x2F; 起始位置，要删除的项数（0），要插入的任一项<br />替换：.splice(2,1,”red”,”green”) &#x2F;&#x2F; 起始位置，要删除的项数（非0），要插入的任意数量项</td>
-<td></td>
-</tr>
-</tbody></table>
-<div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">.concat()</button></li><li class="tab"><button type="button" data-href="#super-2">.slice()</button></li><li class="tab"><button type="button" data-href="#super-3">.splice()</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><p>concat()方法演示：该方法可以连接两个或多个数组，并将新的数组返回，该方法不会对原数组产生影响</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&quot;孙悟空&quot;</span>, <span class="string">&quot;猪八戒&quot;</span>, <span class="string">&quot;沙和尚&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">&quot;白骨精&quot;</span>, <span class="string">&quot;玉兔精&quot;</span>, <span class="string">&quot;蜘蛛精&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="string">&quot;二郎神&quot;</span>, <span class="string">&quot;太上老君&quot;</span>, <span class="string">&quot;玉皇大帝&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> result = arr.<span class="title function_">concat</span>(arr2, arr3, <span class="string">&quot;牛魔王&quot;</span>, <span class="string">&quot;铁扇公主&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);<span class="number">6</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><p>slice()方法演示：该方法可以用来从数组提取指定元素，该方法不会改变元素数组，而是将截取到的元素封装到一个新数组中返回</p>
-<p>参数：</p>
-<p>第一个参数：截取开始的位置的索引，包含开始索引<br>第二个参数：截取结束的位置的索引，不包含结束索引，第二个参数可以省略不写，此时会截取从开始索引往后的所有元素<br>注意：索引可以传递一个负值，如果传递一个负值，则从后往前计算，-1代表倒数第一个，-2代表倒数第二个。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&quot;孙悟空&quot;</span>, <span class="string">&quot;猪八戒&quot;</span>, <span class="string">&quot;沙和尚&quot;</span>, <span class="string">&quot;唐僧&quot;</span>, <span class="string">&quot;白骨精&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> result = arr.<span class="title function_">slice</span>(<span class="number">1</span>, <span class="number">4</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">result = arr.<span class="title function_">slice</span>(<span class="number">3</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">result = arr.<span class="title function_">slice</span>(<span class="number">1</span>, -<span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-3"><p>splice()方法演示：该方法可以用于删除数组中的指定元素，该方法会影响到原数组，会将指定元素从原数组中删除，并将被删除的元素作为返回值返回</p>
-<p>参数：</p>
-<p>第一个参数：表示开始位置的索引<br>第二个参数：表示要删除的元素数量<br>第三个参数及以后参数：可以传递一些新的元素，这些元素将会自动插入到开始位置索引前边</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&quot;孙悟空&quot;</span>, <span class="string">&quot;猪八戒&quot;</span>, <span class="string">&quot;沙和尚&quot;</span>, <span class="string">&quot;唐僧&quot;</span>, <span class="string">&quot;白骨精&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> result = arr.<span class="title function_">splice</span>(<span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">result = arr.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="string">&quot;牛魔王&quot;</span>, <span class="string">&quot;铁扇公主&quot;</span>, <span class="string">&quot;红孩儿&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-4"><table>
-<thead>
-<tr>
-<th align="center">方法名</th>
-<th>说明</th>
-<th>返回值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">push(参数1 …)</td>
-<td>在数组末尾添加一个或多个元素，注意修改原数组</td>
-<td>并返回新的数组</td>
-</tr>
-<tr>
-<td align="center">pop()</td>
-<td>删除数组的最后一个元素，把原数组长度减1，无参数，修改原数组</td>
-<td>返回它删除的元素的值</td>
-</tr>
-<tr>
-<td align="center">unshift(参数1…)</td>
-<td>在数组的开头添加一个或多个元素，修改原数组</td>
-<td>返回新的长度</td>
-</tr>
-<tr>
-<td align="center">shift()</td>
-<td>删除数组的第一个元素，数组长度减1，无参数，修改原数组</td>
-<td>返回第一个元素的值</td>
-</tr>
-</tbody></table>
-<div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">push()</button></li><li class="tab"><button type="button" data-href="#super-2">unshift()</button></li><li class="tab"><button type="button" data-href="#super-3">pop()</button></li><li class="tab"><button type="button" data-href="#super-4">shift()</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><ul>
-<li>在数组末尾添加一个或多个元素，并返回新的数组</li>
-<li>push() 参数直接写数组元素即可</li>
-<li>push 完毕之后，返回的结果是 新数组的长度</li>
-<li>原来的数组会改变</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"> <span class="comment">// arr.push(4, &#x27;jay&#x27;); // 给数组增加元素</span></span><br><span class="line"><span class="comment">// console.log(arr); // [1,2,3,4,&#x27;jay&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">push</span>(<span class="number">4</span>, <span class="string">&#x27;jay&#x27;</span>)) <span class="comment">// 5 返回新数组的长度</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><ul>
-<li>在数组开头，添加一个或多个数组元素</li>
-<li>unshift() 参数直接写数组元素即可</li>
-<li>unshift 完毕之后，返回的结果是 新数组的长度</li>
-<li>原来数组会改变</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">arr.<span class="title function_">unshift</span>(<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>); <span class="comment">// [&#x27;red&#x27;, &#x27;blue&#x27;, 1, 2, 3]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">unshift</span>(<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>)); <span class="comment">// 7 返回新数组的长度</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-3"><ul>
-<li>删除数组的最后一个元素，一次只能删除一个元素</li>
-<li>pop() 没有参数</li>
-<li>pop完毕之后，返回的结果是 删除的元素</li>
-<li>原数组会改变</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">arr.<span class="title function_">pop</span>(); <span class="comment">// [1,2]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">pop</span>());<span class="comment">// 3 返回被删除的元素</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-4"><ul>
-<li>删除数组的第一个元素，一次只能删一个</li>
-<li>shift() 没有参数</li>
-<li>shift()完毕之后，返回的结果是 删除的那个元素</li>
-<li>原数组会变化</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">arr.<span class="title function_">shift</span>(); <span class="comment">// [2,3]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">shift</span>());</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-5"><table>
-<thead>
-<tr>
-<th align="center">方法名</th>
-<th>说明</th>
-<th>是否修改原来的数组</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">reverse()</td>
-<td>颠倒数组中元素的顺序，无参数（默认降序）</td>
-<td>会改变原来的数组，返回新数组</td>
-</tr>
-<tr>
-<td align="center">sort()</td>
-<td>对数组的元素进行排序（默认升序）</td>
-<td>会改变原来的数组，返回新数组</td>
-</tr>
-</tbody></table>
-<div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">reverse()</button></li><li class="tab"><button type="button" data-href="#super-2">sort()</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">arr.<span class="title function_">reverse</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// [4,3,2,1]</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>];</span><br><span class="line">arr.<span class="title function_">sort</span>(<span class="keyword">function</span>(<span class="params">a, b</span>)&#123;</span><br><span class="line">    <span class="comment">// return a - b; // 升序排序</span></span><br><span class="line">    <span class="keyword">return</span> b - a; <span class="comment">// 降序排序</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// [1, 2, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//升序</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">compare</span>(<span class="params">value1,value2</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(value1 &lt; value2)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;   <span class="comment">//想要value1位于value2之前，则返回负数</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(value1 &gt; value2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;    <span class="comment">//想要value1位于value2之后，则返回正数</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> value = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>]</span><br><span class="line">value.<span class="title function_">sort</span>(compare),</span><br><span class="line">values <span class="comment">//0,1,5,10,15</span></span><br></pre></td></tr></table></figure>
-<p>对于数值类型或者其valueOf()方法会返回数值类型的对象类型，可以使用更简单的比较函数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//升序</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">compareNumbers</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-6"><p>数组索引的方法：</p>
+<h2 id="String-字符串对象"><a href="#String-字符串对象" class="headerlink" title="String 字符串对象"></a>String 字符串对象</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String">String - JavaScript | MDN (mozilla.org)</a></p>
 <table>
-<thead>
-<tr>
-<th align="center">方法名</th>
-<th>说明</th>
-<th>返回值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><strong>indexOf()</strong></td>
-<td>数组中查找给定元素的第一个索引</td>
-<td>如果存在，返回索引号，如果不存在，则返回-1</td>
-</tr>
-<tr>
-<td align="center"><strong>lastIndexOf()</strong></td>
-<td>在数组中的最后一个的索引</td>
-<td>如果存在，返回索引号，如果不存在，则返回-1</td>
-</tr>
-</tbody></table>
-<div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">indexOf()</button></li><li class="tab"><button type="button" data-href="#super-2">lastIndexOf()</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><p>indexOf()：</p>
-<ul>
-<li>indexOf(数组元素) ：返回该数组元素的索引号</li>
-<li>只返回一个满足条件的索引号</li>
-<li>如果在该数组中找不到该数组元素，则返回-1</li>
-<li>indexOf(数组元素，起始位置)：indexOf(‘春’,3) 表示从索引号为 3 的位置开始往后查找 春 字</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例  indexOf(数组元素)</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;pink&#x27;</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">indexOf</span>(<span class="string">&#x27;blue&#x27;</span>)); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-7"><table>
-<thead>
-<tr>
-<th align="center">方法名</th>
-<th>说明</th>
-<th>返回值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">.toLocalString()</td>
-<td></td>
-<td>返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串<br />注意：为了获取每一项的值，调用各自的方法</td>
-</tr>
-<tr>
-<td align="center">toString()</td>
-<td>把数组转换成字符串，逗号分隔每一项</td>
-<td>返回一个字符串</td>
-</tr>
-<tr>
-<td align="center">join(‘分隔符’)</td>
-<td>用于把数组中的所有元素转换为一个字符串</td>
-<td>返回一个字符串</td>
-</tr>
-</tbody></table>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="comment">// toString() 数组转换成字符串</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">toString</span>()); <span class="comment">// 1,2,3</span></span><br><span class="line"><span class="comment">// join(&#x27;分隔符&#x27;)  括号内如果不写，默认用逗号进行分隔</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">join</span>(<span class="string">&#x27;-&#x27;</span>)); <span class="comment">// 1-2-3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">join</span>()); <span class="comment">// 1,2,3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">join</span>(<span class="string">&#x27;&amp;&#x27;</span>)); <span class="comment">// 1&amp;2&amp;3</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-8"><p>对数组中的每一项运行给定函数，根据函数结果做出相应的操作。</p>
-<table>
-<thead>
-<tr>
-<th align="center">方法名</th>
-<th>说明</th>
-<th>返回值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">.every()</td>
-<td>如果该函数对每一项都返回true，则返回true</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">.filter()</td>
-<td>返回该函数会返回true的项组成的数组</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">.forEach()</td>
-<td>无返回值</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">.map()</td>
-<td>返回每次函数调用的结果组成的数组</td>
-<td></td>
-</tr>
-<tr>
-<td align="center">.some()</td>
-<td>对任一项能返回true<br />如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。</td>
-<td></td>
-</tr>
-</tbody></table>
-<div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">.every()</button></li><li class="tab"><button type="button" data-href="#super-2">.filter()</button></li><li class="tab"><button type="button" data-href="#super-3">.forEach()</button></li><li class="tab"><button type="button" data-href="#super-4">.map()</button></li><li class="tab"><button type="button" data-href="#super-5">.some()</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-2"><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-3"><p>forEach()方法演示：该方法可以用来遍历数组</p>
-<p>forEach()方法需要一个函数作为参数，像这种函数，由我们创建但是不由我们调用的，我们称为回调函数。数组中有几个元素函数就会执行几次，每次执行时，浏览器会将遍历到的元素，以实参的形式传递进来，我们可以来定义形参，来读取这些内容，浏览器会在回调函数中传递三个参数：</p>
-<p>第一个参数：就是当前正在遍历的元素<br>第二个参数：就是当前正在遍历的元素的索引<br>第三个参数：就是正在遍历的数组<br>注意：这个方法只支持IE8以上的浏览器，IE8及以下的浏览器均不支持该方法，所以如果需要兼容IE8，则不要使用forEach()，还是使用for循环来遍历数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&quot;孙悟空&quot;</span>, <span class="string">&quot;猪八戒&quot;</span>, <span class="string">&quot;沙和尚&quot;</span>];</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">value, index, obj</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(value + <span class="string">&quot; #### &quot;</span> + index + <span class="string">&quot; #### &quot;</span> + obj);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-4"><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="super-5"><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-
-<h2 id="String-字符串对象"><a href="#String-字符串对象" class="headerlink" title="String 字符串对象"></a>String 字符串对象</h2><table>
 <thead>
 <tr>
 <th align="center">方法</th>
 <th>作用</th>
-<th></th>
+<th>示例</th>
+<th>返回值</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">charAt()</td>
+<td align="center">string.prototype.charAt(index)</td>
 <td>返回字符串中特定索引处的字符</td>
 <td>str.charAt(0)</td>
+<td>指定位置的字符&#x2F;空字符</td>
 </tr>
 <tr>
 <td align="center">charCodeAt()</td>
 <td>返回字符串中特定索引处的字符的ASCll码</td>
 <td>str.charCodeAt(0)</td>
+<td></td>
 </tr>
 <tr>
 <td align="center">toUpperCase()</td>
 <td>将字符串的所有字符转换成大写字母</td>
 <td>str.toUpperCase()</td>
+<td></td>
 </tr>
 <tr>
 <td align="center">toLowerCase()</td>
 <td>将字符串的所有字符转换成小写字母</td>
 <td>str.toLowerCase()</td>
+<td></td>
 </tr>
 <tr>
 <td align="center">indexOf</td>
 <td>返回字符串中特定字符串第一次出现的位置</td>
 <td>str.indexOf(‘Q’, [起始位置])<br />起始位置不写，默认从第一个字符开始查找</td>
+<td></td>
 </tr>
 <tr>
 <td align="center">lastIndexOf</td>
 <td>返回字符串中特定字符串最后一次出现的位置</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td align="center">substr()</td>
 <td>从起始索引提取字符串中指定数目的字符</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td align="center">substring()</td>
 <td>提取字符串中两个指定的索引值之间的字符</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td align="center">slice()</td>
 <td>返回字符串的某个子串，支持负数参数，功能更强大</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td align="center">concat()</td>
 <td>用于将多个字符串拼加成一个字符串</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td align="center">replace()</td>
 <td>将字符串中的某个子串以特定的字符串替换</td>
 <td>replace(‘被替换的字符’, ‘替换的字符’)<br />只会替换第一个字符</td>
+<td></td>
 </tr>
 <tr>
 <td align="center">split()</td>
 <td>将某个字符串分割成多个字符串，可以指定分隔符</td>
 <td>str.split(‘,’)</td>
+<td></td>
 </tr>
 <tr>
 <td align="center">match()</td>
 <td>使用正则表达式搜索目标子字符串</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td align="center">search()</td>
 <td>使用正则表达式搜索目标子字符串</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td align="center">trim()</td>
 <td>移除字符串首尾空白</td>
 <td></td>
+<td></td>
 </tr>
 </tbody></table>
-<h3 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h3><p>为了方便操作基本数据类型，JavaScript提供了三个特殊的引用类型：String、Number、Boolean。</p>
-<p>基本包装类型：把简单的数据类型包装称为复杂的数据类型，基本数据类型就有了属性和方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;andy&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(andy.<span class="property">length</span>);</span><br></pre></td></tr></table></figure>
-
-<p>基本数据类型没有属性和方法，对象才有，但是上面的代码可以执行，这是因为js会把基本数据类型包装成复杂数据类型，其执行过程如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.生成临时变量，把简单类型包装成复杂数据类型</span></span><br><span class="line"><span class="keyword">var</span> temp = mew <span class="title class_">String</span>(<span class="string">&#x27;andy&#x27;</span>);</span><br><span class="line"><span class="comment">// 2.赋值给声明的字符变量</span></span><br><span class="line">str = temp;</span><br><span class="line"><span class="comment">// 3.销毁临时变量</span></span><br><span class="line">temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
 <div class="tabs" id="super"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#super-1">求字符出现的位置及次数（案例）</button></li><li class="tab"><button type="button" data-href="#super-2">统计出现次数最多的字符（案例）</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="super-1"><p>示例：查找字母 o ，”haeobcosndosoaoaoaoaxovfodo”</p>
 <p>核心算法：</p>
 <p>1、先查找第一个o出现的位置</p>
@@ -713,7 +529,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个正则表达式可以来检查一个字符串中是否含有a</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/a/i</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Abc&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> result = reg.<span class="title function_">test</span>(str);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 
 <p>3.6.3、正则进阶</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/SUPERQ314">superQ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://superq314.github.io/2022/07/12/frontEnd/3JavaScript/6seniorObject/JS%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">https://superq314.github.io/2022/07/12/frontEnd/3JavaScript/6seniorObject/JS%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://SUPERQ314.github.io" target="_blank">superQ的个人小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/12/frontEnd/3JavaScript/webAPI/Web-APIs/"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Web APIs</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/12/frontEnd/3JavaScript/JS%E8%87%AA%E5%AD%A6%E4%B9%8B%E8%B7%AF/"><img class="next-cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JS自学之路</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/08/01/frontEnd/3JavaScript/PC%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="PC端网页特效"><img class="cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-01</div><div class="title">PC端网页特效</div></div></a></div><div><a href="/2022/08/29/frontEnd/3JavaScript/1controlFlow/%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/" title="控制流程"><img class="cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-29</div><div class="title">控制流程</div></div></a></div><div><a href="/2022/07/14/frontEnd/3JavaScript/4asynchronousProgramming/JS%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" title="JS异步编程"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-14</div><div class="title">JS异步编程</div></div></a></div><div><a href="/2022/07/15/frontEnd/3JavaScript/4asynchronousProgramming/JS%E7%BA%BF%E7%A8%8B/" title="JS线程机制"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-15</div><div class="title">JS线程机制</div></div></a></div><div><a href="/2022/07/13/frontEnd/3JavaScript/5designPatterns/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-13</div><div class="title">设计模式</div></div></a></div><div><a href="/2022/07/31/frontEnd/3JavaScript/6seniorObject/JS%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1/" title="JS自定义对象"><img class="cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-31</div><div class="title">JS自定义对象</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2022/04/11/qDzgSLuwBd48iJG.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">superQ</div><div class="author-info__description">多学技术 提升自己</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">210</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SUPERQ314"><i class="fab fa-github"></i><span>Follow Me！</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SUPERQ314" target="_blank" title="fa fa-github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1078857679@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1078857679" target="_blank" title="fa fa-qq"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://www.zhihu.com/people/qin-chao-10-90" target="_blank" title="iconfont icon-zhihu"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">标准内置对象的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Math-%E6%95%B0%E5%AD%A6%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text">Math 数学对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">Date 日期对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.</span> <span class="toc-text">Array 数组对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text">String 字符串对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.1.</span> <span class="toc-text">基本包装类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RegExp%E5%AF%B9%E8%B1%A1"><span class="toc-number">6.</span> <span class="toc-text">RegExp对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">6.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%AD%A3%E5%88%99%E5%AF%B9%E8%B1%A1"><span class="toc-number">6.2.</span> <span class="toc-text">创建正则对象</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022.04 - 2022 By superQ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome to my <a href="https://SUPERQ314.github.io">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/SUPERQ314">superQ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://superq314.github.io/2022/07/12/frontEnd/3JavaScript/6seniorObject/JS%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">https://superq314.github.io/2022/07/12/frontEnd/3JavaScript/6seniorObject/JS%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://SUPERQ314.github.io" target="_blank">superQ的个人小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/12/frontEnd/3JavaScript/webAPI/Web-APIs/"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Web APIs</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/12/frontEnd/3JavaScript/JS%E8%87%AA%E5%AD%A6%E4%B9%8B%E8%B7%AF/"><img class="next-cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JS自学之路</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/08/01/frontEnd/3JavaScript/PC%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="PC端网页特效"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-01</div><div class="title">PC端网页特效</div></div></a></div><div><a href="/2022/08/29/frontEnd/3JavaScript/1controlFlow/%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/" title="控制流程"><img class="cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-29</div><div class="title">控制流程</div></div></a></div><div><a href="/2022/07/14/frontEnd/3JavaScript/4asynchronousProgramming/JS%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" title="JS异步编程"><img class="cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-14</div><div class="title">JS异步编程</div></div></a></div><div><a href="/2022/07/15/frontEnd/3JavaScript/4asynchronousProgramming/JS%E7%BA%BF%E7%A8%8B/" title="JS线程机制"><img class="cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-15</div><div class="title">JS线程机制</div></div></a></div><div><a href="/2022/07/13/frontEnd/3JavaScript/5designPatterns/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-13</div><div class="title">设计模式</div></div></a></div><div><a href="/2022/07/31/frontEnd/3JavaScript/6seniorObject/JS%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1/" title="JS自定义对象"><img class="cover" src="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-31</div><div class="title">JS自定义对象</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2022/04/11/qDzgSLuwBd48iJG.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">superQ</div><div class="author-info__description">多学技术 提升自己</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">216</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SUPERQ314"><i class="fab fa-github"></i><span>Follow Me！</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SUPERQ314" target="_blank" title="fa fa-github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1078857679@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1078857679" target="_blank" title="fa fa-qq"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://www.zhihu.com/people/qin-chao-10-90" target="_blank" title="iconfont icon-zhihu"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">标准内置对象的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Number-%E6%95%B0%E5%80%BC%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text">Number 数值对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Math-%E6%95%B0%E5%AD%A6%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">Math 数学对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.</span> <span class="toc-text">Date 日期对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text">Array 数组对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1"><span class="toc-number">6.</span> <span class="toc-text">String 字符串对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RegExp%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.</span> <span class="toc-text">RegExp对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">7.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%AD%A3%E5%88%99%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.2.</span> <span class="toc-text">创建正则对象</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022.04 - 2022 By superQ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome to my <a href="https://SUPERQ314.github.io">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
   endLoading: () => {
     document.body.style.overflow = 'auto';
     document.getElementById('loading-box').classList.add("loaded")
