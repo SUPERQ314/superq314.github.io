@@ -6,7 +6,7 @@
   <link href="https://superq314.github.io/atom.xml" rel="self"/>
   
   <link href="https://superq314.github.io/"/>
-  <updated>2022-09-14T05:44:36.641Z</updated>
+  <updated>2022-09-20T02:32:34.560Z</updated>
   <id>https://superq314.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>内容布局方式-rem适配布局</title>
+    <link href="https://superq314.github.io/2022/09/16/frontEnd/2CSS/%E5%86%85%E5%AE%B9%E5%B8%83%E5%B1%80%E6%96%B9%E5%BC%8F-rem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/"/>
+    <id>https://superq314.github.io/2022/09/16/frontEnd/2CSS/%E5%86%85%E5%AE%B9%E5%B8%83%E5%B1%80%E6%96%B9%E5%BC%8F-rem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/</id>
+    <published>2022-09-16T02:31:18.000Z</published>
+    <updated>2022-09-20T02:32:34.560Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>rem适配布局——[混合布局]<br>rem是CSS的长度单位，相当于元素对的font-size的相对值<br>假如</p><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">html&#123;</span><br><span class="line">  font-size: 20px; </span><br><span class="line">&#125;</span><br><span class="line">=<span class="language-ruby">=&gt; 1rem = 20px</span></span><br></pre></td></tr></table></figure><p>rem会随着设备的大小变化而发生相应的改变<br>解决了流式布局和flex布局不能变化高度的问题</p><ol><li>rem + 媒体查询技术<br>&#x3D;&#x3D;&gt; 实现元素大小动态变化</li><li>rem + flexible.is（淘宝技术）<br>将页面的一行分成10份，可以快速布局<br>&#x3D;&#x3D;&gt; 实现元素大小动态变化</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Html-标签粗解</title>
+    <link href="https://superq314.github.io/2022/09/16/frontEnd/1Html/Html-%E6%A0%87%E7%AD%BE%E7%B2%97%E8%A7%A3/"/>
+    <id>https://superq314.github.io/2022/09/16/frontEnd/1Html/Html-%E6%A0%87%E7%AD%BE%E7%B2%97%E8%A7%A3/</id>
+    <published>2022-09-16T01:57:22.000Z</published>
+    <updated>2022-09-16T02:29:34.965Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><code>&lt;a&gt;&lt;/a&gt;</code><br>作用：</p><ul><li>另一个文档</li><li>文档内部</li><li>Email地址</li><li>电话号码</li></ul><p>属性</p><ul><li>href</li><li>target</li><li>download</li><li>hreflang</li><li>rel</li><li>rev</li><li>type</li><li>referrerpolicy</li></ul><p>target中属性值</p><ul><li>_self</li><li>_blank</li><li>_parent</li><li>_top</li></ul><p>举例：<br>创建锚点<br><code>&lt;a href=&quot;#&quot;&gt;×××&lt;/a&gt;</code><br>链接Email地址<br><code>&lt;a href=&quot;mailto:1078857679@qq.com&quot;&gt;×××&lt;/a&gt;</code><br>链接电话<br><code>&lt;a href=&quot;tel:15651005256&quot;&gt;×××&lt;/a&gt;</code><br>文件下载<br><code>&lt;a href=&quot;/keyboard-shortcuts.pdf&quot; download&gt;×××&lt;/a&gt;</code><br><code>&lt;blockquote&gt;&lt;/blockquote&gt;</code></p><ul><li>引用内容</li><li>属性<ul><li>cite<br><code>&lt;em&gt;&lt;/em&gt;</code><br>强调，需要用户着重阅读的内容</li></ul></li><li>默认斜体</li><li>可以嵌套<br><code>&lt;strong&gt;&lt;/strong&gt;</code><br>严重&#x2F;重要&#x2F;紧急的内容</li><li>标题、警告、注意事项、指示性内容</li><li>默认粗体</li><li>可以嵌套<br><code>&lt;span&gt;&lt;/span&gt;</code><br>无任何特殊含义</li><li>行内容器</li><li>样式<br><code>&lt;img&gt;</code><br>图像<br>属性</li><li>src</li><li>alt</li><li>width</li><li>height</li><li>srcset    宽度描述符</li><li>sizes<br>插入图片<br>picture容器 + source<br>source属性</li><li>srcset</li><li>type</li><li>sizes</li><li>media<br>图片热点<br>area属性</li><li>download</li><li>hreflang</li><li>rel</li><li>target</li><li>type</li><li>referrerpolicy<br><code>&lt;video&gt;&lt;/video&gt;</code><br>视频、影片、带字幕的音频<br>属性</li><li>src</li><li>width</li><li>height</li><li>poster</li><li>preload</li><li>autoplay</li><li>loop</li><li>muted</li><li>controls</li><li>crossorigin<br>内嵌标签<br>source</li><li>src</li><li>type<br>track</li><li>kind<ul><li>subtitles</li><li>captions</li><li>descriptions</li><li>chapters</li><li>metadata</li></ul></li><li>srcset</li><li>srclang</li><li>label</li><li>default<br><code>&lt;audio&gt;&lt;/audio&gt;</code><br>音频<br>属性</li><li>src</li><li>preload</li><li>autoplay</li><li>loop</li><li>muted</li><li>controls</li><li>crossorigin<br><code>&lt;iframe&gt;&lt;/iframe&gt;</code><br>内嵌的浏览上下文<br>另一个HTML页面嵌入到当前页面中<br>属性</li><li>src</li><li>width</li><li>height</li><li>name</li><li>sandbox<ul><li>allow-forms</li><li>allow-pointer-lock</li><li>allow-popups</li><li>allow-presentation</li><li>allow-same-origin</li><li>allow-scripts</li><li>allow-top-navigation<br><code>&lt;form&gt;&lt;/form&gt;</code><br>label<br>input<br>fieldset<br>select<br>textarea<br>button<br>output<br>object<br>meter<br>progressimg</li></ul></li><li>label<br>表单控件的标题</li><li>select<br>列表选择器</li><li>不加      默认单选</li><li>multiple  多选模式配置</li><li>size&#x3D;”4”  单选（四选一）</li></ul><p>状态禁用<br>选择器禁用<select disabled><br>选项禁用<option disabled><br>选项组禁用<optgroup disabled></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>前端面试题</title>
@@ -61,9 +101,9 @@
     <link href="https://superq314.github.io/2022/09/13/frontEnd/%E5%89%8D%E6%B2%BF%E7%9F%A5%E8%AF%86/"/>
     <id>https://superq314.github.io/2022/09/13/frontEnd/%E5%89%8D%E6%B2%BF%E7%9F%A5%E8%AF%86/</id>
     <published>2022-09-13T06:25:30.000Z</published>
-    <updated>2022-09-13T07:22:32.334Z</updated>
+    <updated>2022-09-16T02:29:36.213Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>动态网页技术</p><ul><li>JSP</li><li>ASP</li><li>PHP</li></ul><p>MVC template：分层技术</p><p>平台兼容</p><p>&#x3D;&#x3D;&gt; prototype、jQuery、MooTools、Dojo、modernizer</p><p>UI组件化</p><p>&#x3D;&#x3D;&gt; Bindows、YUII、jQuery UI、Ext、Bootstrap、Semantic UI</p><p>分层模块化</p><p>&#x3D;&#x3D;&gt; JavaScript MVC、BackBone、Knockout、Vue、EmberJS、Angular、React</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>动态网页技术</p><ul><li>JSP</li><li>ASP</li><li>PHP</li></ul><p>MVC template：分层技术</p><p>平台兼容</p><p>&#x3D;&#x3D;&gt; prototype、jQuery、MooTools、Dojo、modernizer</p><p>UI组件化</p><p>&#x3D;&#x3D;&gt; Bindows、YUII、jQuery UI、Ext、Bootstrap、Semantic UI</p><p>分层模块化</p><p>&#x3D;&#x3D;&gt; JavaScript MVC、BackBone、Knockout、Vue、EmberJS、Angular、React</p><p>相对地址：</p><pre><code>当前目录./上一级目录../下一级./imgs</code></pre><p>绝对地址</p><p>引用地址</p>]]></content>
     
     
       
@@ -418,60 +458,6 @@
     <category term="前端开发" scheme="https://superq314.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     <category term="CSS" scheme="https://superq314.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/CSS/"/>
-    
-    
-    <category term="面试" scheme="https://superq314.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Html-面试题</title>
-    <link href="https://superq314.github.io/2022/08/29/frontEnd/1Html/html-%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    <id>https://superq314.github.io/2022/08/29/frontEnd/1Html/html-%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
-    <published>2022-08-29T10:45:13.060Z</published>
-    <updated>2022-09-05T01:34:35.553Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="为什么-h4-h5-h6-标签很少用到"><a href="#为什么-h4-h5-h6-标签很少用到" class="headerlink" title="为什么 h4, h5, h6 标签很少用到?"></a>为什么 h4, h5, h6 标签很少用到?</h3><p>标题标签包括 h1 到 h6, 我们常用 h1, h2, h3, 但极少用到 h4, h5 和 h6.</p><p>在一个合理语义化, 敢于裸奔 (不使用 CSS 进行布局) 的网站里面, 标题标签除了语义化, 还带有一些样式作用. 但在 CSS 普及的今天, 用 h1 和 h6 其实没有太大区别, 反正外观也能随便套.</p><p>作为标题标签, 有更牛逼的功能, 标题元素意味着页面上高权值的关键词, 所以 h1, h2 和 h3 被频繁利用来为关键词加权. 而 h4, h5 和 h6 的权值并不高, 甚至比不上 strong 和 em, 所以很少被用到. 估计他们权限层次如下:</p><p>h1 &gt; h2 &gt; h3 &gt; strong &gt; em &gt; h4 &gt; h5 &gt; h6</p><h3 id="页面导入样式时，使用link和-import有什么区别？"><a href="#页面导入样式时，使用link和-import有什么区别？" class="headerlink" title="页面导入样式时，使用link和@import有什么区别？"></a>页面导入样式时，使用link和@import有什么区别？</h3><p>区别1：link是HTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。<br>区别2：link引⽤CSS时，在页⾯载⼊时同时加载；@import需要页⾯⽹页完全载⼊以后加载。<br>区别3：link是HTML标签，⽆兼容问题；@import是在CSS2.1提出的，低版本的浏览器不⽀持。<br>区别4：link⽀持使⽤Javascript控制DOM去改变样式；⽽@import不⽀持</p><h3 id="img标签中的alt和title的区别"><a href="#img标签中的alt和title的区别" class="headerlink" title="img标签中的alt和title的区别"></a>img标签中的alt和title的区别</h3>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="前端开发" scheme="https://superq314.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    <category term="Html" scheme="https://superq314.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Html/"/>
-    
-    
-    <category term="面试" scheme="https://superq314.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>promise</title>
-    <link href="https://superq314.github.io/2022/08/25/frontEnd/3JavaScript/interview/promise/"/>
-    <id>https://superq314.github.io/2022/08/25/frontEnd/3JavaScript/interview/promise/</id>
-    <published>2022-08-25T04:09:47.179Z</published>
-    <updated>2022-08-25T04:11:11.744Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://juejin.cn/post/6844904077537574919">45道Promise面试题</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="前端开发" scheme="https://superq314.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    <category term="面试" scheme="https://superq314.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95/"/>
-    
-    <category term="JavaScript" scheme="https://superq314.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E9%9D%A2%E8%AF%95/JavaScript/"/>
     
     
     <category term="面试" scheme="https://superq314.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
