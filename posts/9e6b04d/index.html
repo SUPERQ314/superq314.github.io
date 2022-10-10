@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>深入Vue—Diff算法分析 | superQ的个人小站</title><meta name="keywords" content="web前端 html css js vue hexo nodejs"><meta name="author" content="superQ,220202090@seu.edu.cn"><meta name="copyright" content="superQ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="virtual DOMvirtual DOM提高了开发效率，而非应用性能 第2种方式比较快，因为第1种方式中间还夹着一个虚拟DOM的步骤，所以虚拟DOM比真实DOM快这句话其实是错的，或者说是不严谨的。那正确的说法是什么呢？虚拟DOM算法操作真实DOM，性能高于直接操作真实DOM，虚拟DOM和虚拟DOM算法是两种概念。 虚拟DOM算法 &#x3D; 虚拟DOM + Diff算法 什么是Diff算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入Vue—Diff算法分析">
+<meta property="og:url" content="https://superq314.github.io/posts/9e6b04d/index.html">
+<meta property="og:site_name" content="superQ的个人小站">
+<meta property="og:description" content="virtual DOMvirtual DOM提高了开发效率，而非应用性能 第2种方式比较快，因为第1种方式中间还夹着一个虚拟DOM的步骤，所以虚拟DOM比真实DOM快这句话其实是错的，或者说是不严谨的。那正确的说法是什么呢？虚拟DOM算法操作真实DOM，性能高于直接操作真实DOM，虚拟DOM和虚拟DOM算法是两种概念。 虚拟DOM算法 &#x3D; 虚拟DOM + Diff算法 什么是Diff算法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg">
+<meta property="article:published_time" content="2022-10-10T15:21:51.000Z">
+<meta property="article:modified_time" content="2022-10-10T15:29:35.495Z">
+<meta property="article:author" content="superQ">
+<meta property="article:tag" content="web前端 html css js vue hexo nodejs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://superq314.github.io/posts/9e6b04d/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '深入Vue—Diff算法分析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-10-10 23:29:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/dog.css"><link rel="stylesheet" href="/css/rightMenu.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_3332915_ymmoy7wnkg.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="superQ的个人小站" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2022/04/11/qDzgSLuwBd48iJG.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">242</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-bank"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间戳</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 赋闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/galleryGroup/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/HTML/resume/index.html"><i class="fa-fw fa fa-id-card"></i><span> myself</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/"><i class="fa-fw fa fa-heart"></i><span> butterfly主题</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">superQ的个人小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-bank"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间戳</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 赋闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/galleryGroup/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/HTML/resume/index.html"><i class="fa-fw fa fa-id-card"></i><span> myself</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/"><i class="fa-fw fa fa-heart"></i><span> butterfly主题</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div><div id="he-plugin-simple"></div></div></nav><div id="post-info"><h1 class="post-title">深入Vue—Diff算法分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-10T15:21:51.000Z" title="发表于 2022-10-10 23:21:51">2022-10-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-10T15:29:35.495Z" title="更新于 2022-10-10 23:29:35">2022-10-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>virtual DOM<br><strong>virtual DOM提高了开发效率，而非应用性能</strong></p>
+<p>第2种方式比较快，因为第1种方式中间还夹着一个虚拟DOM的步骤，所以虚拟DOM比真实DOM快这句话其实是错的，或者说是不严谨的。<br>那正确的说法是什么呢？<br>虚拟DOM算法操作真实DOM，性能高于直接操作真实DOM，虚拟DOM和虚拟DOM算法是两种概念。</p>
+<p>虚拟DOM算法 &#x3D; 虚拟DOM + Diff算法</p>
+<p>什么是Diff算法<br>上面咱们说了虚拟DOM，也知道了只有虚拟DOM + Diff算法才能真正的提高性能，那讲完虚拟DOM，我们再来讲讲Diff算法吧，还是上面的例子(这张图被压缩的有点小，大家可以打开看，比较清晰)：</p>
+<p>上图中，其实只有一个li标签修改了文本，其他都是不变的，所以没必要所有的节点都要更新，只更新这个li标签就行，Diff算法就是查出这个li标签的算法。<br>总结：Diff算法是一种对比算法。<br>对比两者是旧虚拟DOM和新虚拟DOM，对比出是哪个虚拟节点更改了，找出这个虚拟节点，并只更新这个虚拟节点所对应的真实节点，而不用更新其他数据没发生改变的节点，实现精准地更新真实DOM，进而提高效率。<br>使用虚拟DOM算法的损耗计算： </p>
+<blockquote>
+<p>总损耗 &#x3D; 虚拟DOM增删改+（与Diff算法效率有关）真实DOM差异增删改+（较少的节点）排版与重绘<br>直接操作真实DOM的损耗计算：<br>总损耗 &#x3D; 真实DOM完全增删改+（可能较多的节点）排版与重绘<br>Diff &amp; Patch算法<br>Diff策略</p>
+</blockquote>
+<ol>
+<li>按tree层级diff（level by level）</li>
+<li>按类型进行diff</li>
+<li>列表diff<br>Diff算法的原理<br>Diff同层对比<br>新旧虚拟DOM对比的时候，Diff算法比较只会在同层级进行, 不会跨层级比较。<br>所以Diff算法是:深度优先算法。 <br>时间复杂度:O(n)</li>
+</ol>
+<p>Diff对比流程<br>当数据改变时，会触发setter，并且通过Dep.notify去通知所有订阅者Watcher，订阅者们就会调用patch方法，给真实DOM打补丁，更新相应的视图。<br>newVnode和oldVnode：同层的新旧虚拟节点 </p>
+<p>patch方法<br>这个方法作用就是，对比当前同层的虚拟节点是否为同一种类型的标签(同一类型的标准，下面会讲)：<br>是：继续执行patchVnode方法进行深层比对<br>否：没必要比对了，直接整个节点替换成新虚拟节点<br>来看看patch的核心原理代码<br>function patch(oldVnode, newVnode) {<br>  &#x2F;&#x2F; 比较是否为一个类型的节点<br>  if (sameVnode(oldVnode, newVnode)) {<br>    &#x2F;&#x2F; 是：继续进行深层比较<br>    patchVnode(oldVnode, newVnode)<br>  } else {<br>    &#x2F;&#x2F; 否<br>    const oldEl &#x3D; oldVnode.el &#x2F;&#x2F; 旧虚拟节点的真实DOM节点<br>    const parentEle &#x3D; api.parentNode(oldEl) &#x2F;&#x2F; 获取父节点<br>    createEle(newVnode) &#x2F;&#x2F; 创建新虚拟节点对应的真实DOM节点<br>    if (parentEle !&#x3D;&#x3D; null) {<br>      api.insertBefore(parentEle, vnode.el, api.nextSibling(oEl)) &#x2F;&#x2F; 将新元素添加进父元素<br>      api.removeChild(parentEle, oldVnode.el)  &#x2F;&#x2F; 移除以前的旧元素节点<br>      &#x2F;&#x2F; 设置null，释放内存<br>      oldVnode &#x3D; null<br>    }<br>  }<br>  return newVnode<br>}<br>sameVnode方法<br>patch关键的一步就是sameVnode方法判断是否为同一类型节点，那问题来了，怎么才算是同一类型节点呢？这个类型的标准是什么呢？<br>咱们来看看sameVnode方法的核心原理代码，就一目了然了<br>function sameVnode(oldVnode, newVnode) {<br>  return (<br>    oldVnode.key &#x3D;&#x3D;&#x3D; newVnode.key &amp;&amp; &#x2F;&#x2F; key值是否一样<br>    oldVnode.tagName &#x3D;&#x3D;&#x3D; newVnode.tagName &amp;&amp; &#x2F;&#x2F; 标签名是否一样<br>    oldVnode.isComment &#x3D;&#x3D;&#x3D; newVnode.isComment &amp;&amp; &#x2F;&#x2F; 是否都为注释节点<br>    isDef(oldVnode.data) &#x3D;&#x3D;&#x3D; isDef(newVnode.data) &amp;&amp; &#x2F;&#x2F; 是否都定义了data<br>    sameInputType(oldVnode, newVnode) &#x2F;&#x2F; 当标签为input时，type必须是否相同<br>  )<br>}<br>patchVnode方法<br>这个函数做了以下事情：</p>
+<ul>
+<li>找到对应的真实DOM，称为el</li>
+<li>判断newVnode和oldVnode是否指向同一个对象，如果是，那么直接return</li>
+<li>如果他们都有文本节点且不相等，那么将el的文本节点设置为newVnode的文本节点。</li>
+<li>如果oldVnode有子节点而newVnode没有，则删除el的子节点</li>
+<li>如果oldVnode没有子节点而newVnode有，则将newVnode的子节点真实化之后添加到el</li>
+<li>如果两者都有子节点，则执行updateChildren函数比较子节点，这一步很重要<br>function patchVnode(oldVnode, newVnode) {<br>const el &#x3D; newVnode.el &#x3D; oldVnode.el &#x2F;&#x2F; 获取真实DOM对象<br>&#x2F;&#x2F; 获取新旧虚拟节点的子节点数组<br>const oldCh &#x3D; oldVnode.children, newCh &#x3D; newVnode.children<br>&#x2F;&#x2F; 如果新旧虚拟节点是同一个对象，则终止<br>if (oldVnode &#x3D;&#x3D;&#x3D; newVnode) return<br>&#x2F;&#x2F; 如果新旧虚拟节点是文本节点，且文本不一样<br>if (oldVnode.text !&#x3D;&#x3D; null &amp;&amp; newVnode.text !&#x3D;&#x3D; null &amp;&amp; oldVnode.text !&#x3D;&#x3D; newVnode.text) {<br>  &#x2F;&#x2F; 则直接将真实DOM中文本更新为新虚拟节点的文本<br>  api.setTextContent(el, newVnode.text)<br>} else {<br>  &#x2F;&#x2F; 否则<br>  if (oldCh &amp;&amp; newCh &amp;&amp; oldCh !&#x3D;&#x3D; newCh) {<br>&#x2F;&#x2F; 新旧虚拟节点都有子节点，且子节点不一样<br>&#x2F;&#x2F; 对比子节点，并更新<br>updateChildren(el, oldCh, newCh)<br>  } else if (newCh) {<br>&#x2F;&#x2F; 新虚拟节点有子节点，旧虚拟节点没有<br>&#x2F;&#x2F; 创建新虚拟节点的子节点，并更新到真实DOM上去<br>createEle(newVnode)<br>  } else if (oldCh) {<br>&#x2F;&#x2F; 旧虚拟节点有子节点，新虚拟节点没有<br>&#x2F;&#x2F;直接删除真实DOM里对应的子节点<br>api.removeChild(el)<br>  }<br>}<br>}<br>其他几个点都很好理解，我们详细来讲一下updateChildren<br>updateChildren方法<br>这是patchVnode里最重要的一个方法，新旧虚拟节点的子节点对比，就是发生在updateChildren方法中，接下来就结合一些图来讲，让大家更好理解吧<br>是怎么样一个对比方法呢？就是首尾指针法，新的子节点集合和旧的子节点集合，各有首尾两个指针，举个例子：<ul>
+  <li>a</li>
+  <li>b</li>
+  <li>c</li>
+</ul>
+修改数据后
+<ul>
+  <li>b</li>
+  <li>c</li>
+  <li>e</li>
+  <li>a</li>
+</ul>
+那么新旧两个子节点集合以及其首尾指针为：</li>
+</ul>
+<p>然后会进行互相进行比较，总共有五种比较情况：</p>
+<ol>
+<li>oldS 和 newS 使用sameVnode方法进行比较，sameVnode(oldS, newS)</li>
+<li>oldS 和 newE 使用sameVnode方法进行比较，sameVnode(oldS, newE)</li>
+<li>oldE 和 newS 使用sameVnode方法进行比较，sameVnode(oldE, newS)</li>
+<li>oldE 和 newE 使用sameVnode方法进行比较，sameVnode(oldE, newE)</li>
+<li>如果以上逻辑都匹配不到，再把所有旧子节点的 key 做一个映射到旧节点下标的 key -&gt; index 表，然后用新 vnode 的 key 去找出在旧节点中可以复用的位置。</li>
+</ol>
+<p>接下来就以上面代码为例，分析一下比较的过程<br>分析之前，请大家记住一点，最终的渲染结果都要以newVDOM为准，这也解释了为什么之后的节点移动需要移动到newVDOM所对应的位置</p>
+<p>第一步<br>oldS &#x3D; a, oldE &#x3D; c<br>newS &#x3D; b, newE &#x3D; a<br>比较结果：oldS 和 newE 相等，需要把节点a移动到newE所对应的位置，也就是末尾，同时oldS++，newE–</p>
+<p>第二步<br>oldS &#x3D; b, oldE &#x3D; c<br>newS &#x3D; b, newE &#x3D; e<br>比较结果：oldS 和 newS相等，需要把节点b移动到newS所对应的位置，同时oldS++,newS++</p>
+<p>第三步<br>oldS &#x3D; c, oldE &#x3D; c<br>newS &#x3D; c, newE &#x3D; e<br>比较结果：oldS、oldE 和 newS相等，需要把节点c移动到newS所对应的位置，同时oldS++,newS++</p>
+<p>第四步<br>oldS &gt; oldE，则oldCh先遍历完成了，而newCh还没遍历完，说明newCh比oldCh多，所以需要将多出来的节点，插入到真实DOM上对应的位置上</p>
+<p>思考题<br>我在这里给大家留一个思考题哈。上面的例子是newCh比oldCh多，假如相反，是oldCh比newCh多的话，那就是newCh先走完循环，然后oldCh会有多出的节点，结果会在真实DOM里进行删除这些旧节点。大家可以自己思考一下，模拟一下这个过程，像我一样，画图模拟，才能巩固上面的知识。<br>附上updateChildren的核心原理代码<br>function updateChildren(parentElm, oldCh, newCh) {<br>  let oldStartIdx &#x3D; 0, newStartIdx &#x3D; 0<br>  let oldEndIdx &#x3D; oldCh.length - 1<br>  let oldStartVnode &#x3D; oldCh[0]<br>  let oldEndVnode &#x3D; oldCh[oldEndIdx]<br>  let newEndIdx &#x3D; newCh.length - 1<br>  let newStartVnode &#x3D; newCh[0]<br>  let newEndVnode &#x3D; newCh[newEndIdx]<br>  let oldKeyToIdx<br>  let idxInOld<br>  let elmToMove<br>  let before<br>  while (oldStartIdx &lt;&#x3D; oldEndIdx &amp;&amp; newStartIdx &lt;&#x3D; newEndIdx) {<br>    if (oldStartVnode &#x3D;&#x3D; null) {<br>      oldStartVnode &#x3D; oldCh[++oldStartIdx]<br>    } else if (oldEndVnode &#x3D;&#x3D; null) {<br>      oldEndVnode &#x3D; oldCh[–oldEndIdx]<br>    } else if (newStartVnode &#x3D;&#x3D; null) {<br>      newStartVnode &#x3D; newCh[++newStartIdx]<br>    } else if (newEndVnode &#x3D;&#x3D; null) {<br>      newEndVnode &#x3D; newCh[–newEndIdx]<br>    } else if (sameVnode(oldStartVnode, newStartVnode)) {<br>      patchVnode(oldStartVnode, newStartVnode)<br>      oldStartVnode &#x3D; oldCh[++oldStartIdx]<br>      newStartVnode &#x3D; newCh[++newStartIdx]<br>    } else if (sameVnode(oldEndVnode, newEndVnode)) {<br>      patchVnode(oldEndVnode, newEndVnode)<br>      oldEndVnode &#x3D; oldCh[–oldEndIdx]<br>      newEndVnode &#x3D; newCh[–newEndIdx]<br>    } else if (sameVnode(oldStartVnode, newEndVnode)) {<br>      patchVnode(oldStartVnode, newEndVnode)<br>      api.insertBefore(parentElm, oldStartVnode.el, api.nextSibling(oldEndVnode.el))<br>      oldStartVnode &#x3D; oldCh[++oldStartIdx]<br>      newEndVnode &#x3D; newCh[–newEndIdx]<br>    } else if (sameVnode(oldEndVnode, newStartVnode)) {<br>      patchVnode(oldEndVnode, newStartVnode)<br>      api.insertBefore(parentElm, oldEndVnode.el, oldStartVnode.el)<br>      oldEndVnode &#x3D; oldCh[–oldEndIdx]<br>      newStartVnode &#x3D; newCh[++newStartIdx]<br>    } else {<br>      &#x2F;&#x2F; 使用key时的比较<br>      if (oldKeyToIdx &#x3D;&#x3D;&#x3D; undefined) {<br>        oldKeyToIdx &#x3D; createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx) &#x2F;&#x2F; 有key生成index表<br>      }<br>      idxInOld &#x3D; oldKeyToIdx[newStartVnode.key]<br>      if (!idxInOld) {<br>        api.insertBefore(parentElm, createEle(newStartVnode).el, oldStartVnode.el)<br>        newStartVnode &#x3D; newCh[++newStartIdx]<br>      }<br>      else {<br>        elmToMove &#x3D; oldCh[idxInOld]<br>        if (elmToMove.sel !&#x3D;&#x3D; newStartVnode.sel) {<br>          api.insertBefore(parentElm, createEle(newStartVnode).el, oldStartVnode.el)<br>        } else {<br>          patchVnode(elmToMove, newStartVnode)<br>          oldCh[idxInOld] &#x3D; null<br>          api.insertBefore(parentElm, elmToMove.el, oldStartVnode.el)<br>        }<br>        newStartVnode &#x3D; newCh[++newStartIdx]<br>      }<br>    }<br>  }<br>  if (oldStartIdx &gt; oldEndIdx) {<br>    before &#x3D; newCh[newEndIdx + 1] &#x3D;&#x3D; null ? null : newCh[newEndIdx + 1].el<br>    addVnodes(parentElm, before, newCh, newStartIdx, newEndIdx)<br>  } else if (newStartIdx &gt; newEndIdx) {<br>    removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx)<br>  }<br>}<br>用index做key<br>平常v-for循环渲染的时候，为什么不建议用index作为循环项的key呢？<br>我们举个例子，左边是初始数据，然后我在数据前插入一个新数据，变成右边的列表</p>
+<ul>                      <ul>
+    <li key="0">a</li>        <li key="0">林三心</li>
+    <li key="1">b</li>        <li key="1">a</li>
+    <li key="2">c</li>        <li key="2">b</li>
+                             <li key="3">c</li>
+</ul>                     </ul>
+
+<p>按理说，最理想的结果是：只插入一个li标签新节点，其他都不动，确保操作DOM效率最高。但是我们这里用了index来当key的话，真的会实现我们的理想结果吗？废话不多说，实践一下：</p>
+<ul>
+   <li v-for="(item, index) in list" :key="index"></li>
+</ul>
+<button @click="add">增加</button>
+
+<p>list: [<br>        { title: “a”, id: “100” },<br>        { title: “b”, id: “101” },<br>        { title: “c”, id: “102” },<br>      ]<br>add() {<br>      this.list.unshift({ title: “林三心”, id: “99” });<br>}<br>点击按钮我们可以看到，并不是我们预想的结果，而是所有li标签都更新了</p>
+<p>为什么会这样呢？还是通过图来解释<br>按理说，a，b，c三个li标签都是复用之前的，因为他们三个根本没改变，改变的只是前面新增了一个林三心</p>
+<p>但是我们前面说了，在进行子节点的 diff算法 过程中，会进行 旧首节点和新首节点的sameNode对比，这一步命中了逻辑，因为现在新旧两次首部节点 的 key 都是 0了，同理，key为1和2的也是命中了逻辑，导致相同key的节点会去进行patchVnode更新文本，而原本就有的c节点，却因为之前没有key为4的节点，而被当做了新节点，所以很搞笑，使用index做key，最后新增的居然是本来就已有的c节点。所以前三个都进行patchVnode更新文本，最后一个进行了新增，那就解释了为什么所有li标签都更新了。</p>
+<p>那我们可以怎么解决呢？其实我们只要使用一个独一无二的值来当做key就行了</p>
+<ul>
+   <li v-for="item in list" :key="item.id"></li>
+</ul>
+现在再来看看效果
+
+<p>为什么用了id来当做key就实现了我们的理想效果呢，因为这么做的话，a，b，c节点的key就会是永远不变的，更新前后key都是一样的，并且又由于a，b，c节点的内容本来就没变，所以就算是进行了patchVnode，也不会执行里面复杂的更新操作，节省了性能，而林三心节点，由于更新前没有他的key所对应的节点，所以他被当做新的节点，增加到真实DOM上去了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/SUPERQ314">superQ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://superq314.github.io/posts/9e6b04d/">https://superq314.github.io/posts/9e6b04d/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://SUPERQ314.github.io" target="_blank">superQ的个人小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/e7087c1d/"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">深入Vue—虚拟DOM</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2022/04/11/qDzgSLuwBd48iJG.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">superQ</div><div class="author-info__description">多学技术 提升自己</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">242</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SUPERQ314"><i class="fab fa-github"></i><span>Follow Me！</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SUPERQ314" target="_blank" title="fa fa-github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1078857679@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1078857679" target="_blank" title="fa fa-qq"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://www.zhihu.com/people/qin-chao-10-90" target="_blank" title="iconfont icon-zhihu"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">superQ的个人小站！一只学习前端开发的菜鸟甜甜圈~ <b><font color="#e66b6d">双</font> <font color="#e66d98">手</font> <font color="#e66cc6">合</font> <font color="#cc6de6">十</font> <font color="#9770e6">成</font> <font color="#6d93e6">为</font> <font color="#6fcde6">自</font> <font color="#72e6b6">己</font> <font color="#72e689">的</font> <font color="#99e670">神</font>, <font color="#cde670">自</font> <font color="#e6df72">己</font> <font color="#e6c073">所</font> <font color="#e6a271">信</font> <font color="#e6796f">念</font> <font color="#e65454">的</font> <font color="#e63333">即</font> <font color="#e62c2c">是</font> <font color="#e60101">信</font> <font color="#e60101">仰</font></b> <p align="center"><img src="https://img-blog.csdnimg.cn/f7384c88956d4378b72e47548e19c9f8.gif" width="50" alt="mao"></p> <p align="center">微信号：wh18363</p> <p align="center">QQ号：1836360247</p><div class="xpand" style="height:200px;"></div></div></div><canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople1.js"></script><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/zdog.dist.js"></script><script id="rendered-js" src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople.js"></script><style>.card-widget.card-announcement {
+margin: 0;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+canvas {
+display: block;
+margin: 0 auto;
+cursor: move;
+}</style><div class="sticky_layout"></div></div></main><footer id="footer" style="background-image: url('https://tva1.sinaimg.cn/large/832afe33ly1gbhxplql40j22801e0q3c.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022.04 - 2022  <i id="heartbeat" class="fa fas fa-heartbeat"></i> superQ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi,  welcome to my <a href="https://SUPERQ314.github.io">blog</a>!<p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&logo=Codio" title="本站采用双线部署，联通线路托管于Coding"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-sun"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'forest' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><div class="aplayer no-destroy" data-id="2120966270" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="true" data-listfolded="true"> </div><script async src="/js/weather.js"></script><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer data-pjax src="/js/rightMenu.js"></script><script defer data-pjax src="/js/dog.js"></script><script src="/js/sun_moon.js" async></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"jsonPath":"/live2dw/assets/hijiki.model.json"},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
