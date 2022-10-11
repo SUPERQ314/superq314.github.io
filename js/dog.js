@@ -33,7 +33,7 @@ if (document.body.clientWidth > 992) {
                 zoom: 0.9,
                 borderRadius: 5 + 'px',
                 right: 60 + 'px',
-                nekoImg: "https://s2.loli.net/2022/09/23/d8WmBvEVkpPSTlU.jpg",
+                nekoImg: "https://s2.loli.net/2022/09/23/d8WmBvEVkpPSTlU.png",
                 hoverMsg: "汪汪汪~",
                 color: "#6f42c1",
                 during: 500,
