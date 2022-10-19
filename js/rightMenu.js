@@ -10,6 +10,7 @@ rm.showRightMenu = function (isTrue, x = 0, y = 0) {
         $rightMenu.hide();
     }
 };
+
 let rmWidth = $('#rightMenu').width();
 let rmHeight = $('#rightMenu').height();
 rm.reloadrmSize = function () {
@@ -182,7 +183,12 @@ $('#menu-translate').on('click', function () {
 $(".menu-link").on("click", function () {
     removeRightMenu()
 });
+$("#menu-print").on("click", function () {
+    removeRightMenu();
+    window.print();
+});
 $("#rightmenu-mask").on("click", function () { removeRightMenu() });
+
 $("#rightmenu-mask").contextmenu(function () {
     removeRightMenu();
     return false;

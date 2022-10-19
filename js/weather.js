@@ -14,7 +14,7 @@ WIDGET = {
     "shadow": "1",
     "language": "auto",
     "borderRadius": "8",
-    "fixed": "true",
+    "fixed": "false",
     "vertical": "top",
     "horizontal": "left",
     "left": "200",
