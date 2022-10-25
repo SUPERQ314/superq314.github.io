@@ -19,6 +19,7 @@ function switchNightMode() {
   } else {
     activateLightMode()
     saveToLocal.set('theme', 'light', 2)
+    GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
     document.querySelector('body').classList.add('DarkMode'), document.getElementById('modeicon').setAttribute('xlink:href', '#icon-moon')
   }
   // handle some cases
