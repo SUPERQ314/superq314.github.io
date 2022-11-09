@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /**
    * 代碼
-   * 只適用於Hexo默認的代碼渲染
+   * 只適用于Hexo默認的代碼渲染
    */
   const addHighlightTool = function () {
     const highLight = GLOBAL_CONFIG.highlight
@@ -224,13 +224,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /**
-   * 滾動處理
+   * 滾動处理
    */
   const scrollFn = function () {
     const $rightside = document.getElementById('rightside')
     const innerHeight = window.innerHeight + 56
 
-    // 當滾動條小于 56 的時候
+    // 当滾動条小于 56 的时候
     if (document.body.scrollHeight <= innerHeight) {
       $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
       return
@@ -519,7 +519,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /**
-   * 複製時加上版權信息
+   * 複製时加上版權信息
    */
   const addCopyright = () => {
     const copyright = GLOBAL_CONFIG.copyright
@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /**
-   * 網頁運行時間
+   * 網頁運行时間
    */
   const addRuntime = () => {
     const $runtimeCount = document.getElementById('runtimeshow')
@@ -555,7 +555,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /**
-   * 最後一次更新時間
+   * 最后一次更新时間
    */
   const addLastPushDate = () => {
     const $lastPushDateItem = document.getElementById('last-push-date')
