@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   const translate = GLOBAL_CONFIG.translate
   const snackbarData = GLOBAL_CONFIG.Snackbar
-  const defaultEncoding = translate.defaultEncoding // 網站默認語言，1: 繁體中文, 2: 簡體中文
-  const translateDelay = translate.translateDelay // 延遲时間,若不在前, 要設定延遲翻譯时間, 如100表示100ms,默認為0
+  const defaultEncoding = translate.defaultEncoding // 网站默認語言，1: 繁體中文, 2: 简體中文
+  const translateDelay = translate.translateDelay // 延遲时間,若不在前, 要设定延遲翻譯时間, 如100表示100ms,默認為0
   const msgToTraditionalChinese = translate.msgToTraditionalChinese // 此处可以更改為你想要顯示的文字
   const msgToSimplifiedChinese = translate.msgToSimplifiedChinese // 同上，但兩处均不建議更改
   let currentEncoding = defaultEncoding

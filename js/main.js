@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /**
-   * 首頁top_img底下的箭頭
+   * 首页top_img底下的箭頭
    */
   const scrollDownInIndex = () => {
     const $scrollDownEle = document.getElementById('scroll-down')
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
       typeof FB === 'object' && window.loadFBComment()
       typeof runMermaid === 'function' && window.runMermaid()
     },
-    showOrHideBtn: (e) => { // rightside 點擊設置 按鈕 展開
+    showOrHideBtn: (e) => { // rightside 點擊设置 按鈕 展开
       const rightsideHideClassList = document.getElementById('rightside-config-hide').classList
       rightsideHideClassList.toggle('show')
       if (e.classList.contains('show')) {
@@ -508,7 +508,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /**
    * menu
-   * 側邊欄sub-menu 展開/收縮
+   * 側邊欄sub-menu 展开/收縮
    */
   const clickFnOfSubMenu = () => {
     document.querySelectorAll('#sidebar-menus .site-page.group').forEach(function (item) {
@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /**
-   * 網頁運行时間
+   * 网页運行时間
    */
   const addRuntime = () => {
     const $runtimeCount = document.getElementById('runtimeshow')
